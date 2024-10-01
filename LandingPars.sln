@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Landing", "Landing\Landing.csproj", "{EF162D1F-4A3B-4877-AF63-E9C83605DDE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "Dal\Dal.csproj", "{5DC74364-5F51-441D-92F0-6017A1FCD4E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF162D1F-4A3B-4877-AF63-E9C83605DDE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF162D1F-4A3B-4877-AF63-E9C83605DDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF162D1F-4A3B-4877-AF63-E9C83605DDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF162D1F-4A3B-4877-AF63-E9C83605DDE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC74364-5F51-441D-92F0-6017A1FCD4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC74364-5F51-441D-92F0-6017A1FCD4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC74364-5F51-441D-92F0-6017A1FCD4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC74364-5F51-441D-92F0-6017A1FCD4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
