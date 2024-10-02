@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "";
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
@@ -33,7 +33,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <img src="/Images/Banner/parsme-logo.png"/>
+        <img src="/Images/parsme-logo.png"/>
         <p class="text-decoration-none">
             <b>ورود به پنل مدیریت</b>
         </p>
@@ -50,10 +50,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
-                        <a class="btn btn-primary btn-block btn-flat rounded-2 text-white" onclick="confirmCode()">ورود با کد</a>
-                    </div>
-                    <!-- /.col -->
                     <div class="col-6">
                         <a class="btn btn-primary btn-block btn-flat rounded-2 text-white" onclick="withPassword()">ورود با رمز عبور</a>
                     </div>
@@ -99,7 +95,7 @@
                $.ajax({
                       type: "Post",
                       data: {phoneNumber: $('#phoneNumber').val()},
-                      url: "/Admin/LoginPassword",
+                      url: "/Admin/LoginAPassword",
                       success: function (data) {
                           Notiflix.Notify.success('ورود موفقیت انجام شد');
                        window.location.href= "/admin/LoginPassword?phoneNumber=" + $('#phoneNumber').val();

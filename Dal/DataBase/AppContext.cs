@@ -19,11 +19,15 @@ public class AppContext : IdentityDbContext<User, Role, int>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            "Data Source=185.165.118.72;Initial Catalog=NewPars;User ID=pars;Password=I$w225am;Trust Server Certificate=True"
+            "Data Source=DESKTOP-M202FR8\\KEY1;Initial Catalog=LandingPars;Integrated Security=True;Trust Server Certificate=True"
         );
         base.OnConfiguring(optionsBuilder);
     }
 
+    DbSet<LandingPage> Pages { set; get; }
+    DbSet<Brand> Brands { set; get; }
+    DbSet<SubPage> SubPages { set; get; }
+    DbSet<Category> Categories { set; get; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
