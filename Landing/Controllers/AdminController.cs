@@ -223,46 +223,46 @@ public class AdminController : Controller
 
         Upload up = new Upload(_webHostEnvironment);
 
-        subPage.ImageSlider = request.ImageSlider != null
-            ? up.Uploadfile(request.ImageSlider, "landing")
-            : subPage.ImageSlider;
-        subPage.ImageSlider2 = request.ImageSlider2 != null
-            ? up.Uploadfile(request.ImageSlider2, "landing")
-            : subPage.ImageSlider2;
-        subPage.ImageSlider3 =  request.ImageSlider3 != null
-            ? up.Uploadfile(request.ImageSlider3, "landing")
-            : subPage.ImageSlider3;
-        subPage.ImageSlider4 =  request.ImageSlider4 != null
-            ? up.Uploadfile(request.ImageSlider4, "landing")
-            : subPage.ImageSlider4;
-        subPage.ImageSlider5 =  request.ImageSlider5 != null
-            ? up.Uploadfile(request.ImageSlider5, "landing")
-            : subPage.ImageSlider5;
-
-        subPage.TitleSlider = request.TitleSlider;
-        subPage.TitleSlider2 = request.TitleSlider2;
-        subPage.TitleSlider3 = request.TitleSlider3;
-        subPage.TitleSlider4 = request.TitleSlider4;
-        subPage.TitleSlider5 = request.TitleSlider5;
-
-        subPage.SubTitleSlider = request.SubTitleSlider;
-        subPage.SubTitleSlider2 = request.SubTitleSlider2;
-        subPage.SubTitleSlider3 = request.SubTitleSlider3;
-        subPage.SubTitleSlider4 = request.SubTitleSlider4;
-        subPage.SubTitleSlider5 = request.SubTitleSlider5;
-
-        subPage.TitleSliderEn = request.TitleSliderEn;
-        subPage.TitleSliderEn2 = request.TitleSliderEn2;
-        subPage.TitleSliderEn3 = request.TitleSliderEn3;
-        subPage.TitleSliderEn4 = request.TitleSliderEn4;
-        subPage.TitleSliderEn5 = request.TitleSliderEn5;
-
-
-        subPage.SubTitleSliderEn = request.SubTitleSliderEn;
-        subPage.SubTitleSliderEn2 = request.SubTitleSliderEn2;
-        subPage.SubTitleSliderEn3 = request.SubTitleSliderEn3;
-        subPage.SubTitleSliderEn4 = request.SubTitleSliderEn4;
-        subPage.SubTitleSliderEn5 = request.SubTitleSliderEn5;
+        // subPage.ImageSlider = request.ImageSlider != null
+        //     ? up.Uploadfile(request.ImageSlider, "landing")
+        //     : subPage.ImageSlider;
+        // subPage.ImageSlider2 = request.ImageSlider2 != null
+        //     ? up.Uploadfile(request.ImageSlider2, "landing")
+        //     : subPage.ImageSlider2;
+        // subPage.ImageSlider3 =  request.ImageSlider3 != null
+        //     ? up.Uploadfile(request.ImageSlider3, "landing")
+        //     : subPage.ImageSlider3;
+        // subPage.ImageSlider4 =  request.ImageSlider4 != null
+        //     ? up.Uploadfile(request.ImageSlider4, "landing")
+        //     : subPage.ImageSlider4;
+        // subPage.ImageSlider5 =  request.ImageSlider5 != null
+        //     ? up.Uploadfile(request.ImageSlider5, "landing")
+        //     : subPage.ImageSlider5;
+        //
+        // subPage.TitleSlider = request.TitleSlider;
+        // subPage.TitleSlider2 = request.TitleSlider2;
+        // subPage.TitleSlider3 = request.TitleSlider3;
+        // subPage.TitleSlider4 = request.TitleSlider4;
+        // subPage.TitleSlider5 = request.TitleSlider5;
+        //
+        // subPage.SubTitleSlider = request.SubTitleSlider;
+        // subPage.SubTitleSlider2 = request.SubTitleSlider2;
+        // subPage.SubTitleSlider3 = request.SubTitleSlider3;
+        // subPage.SubTitleSlider4 = request.SubTitleSlider4;
+        // subPage.SubTitleSlider5 = request.SubTitleSlider5;
+        //
+        // subPage.TitleSliderEn = request.TitleSliderEn;
+        // subPage.TitleSliderEn2 = request.TitleSliderEn2;
+        // subPage.TitleSliderEn3 = request.TitleSliderEn3;
+        // subPage.TitleSliderEn4 = request.TitleSliderEn4;
+        // subPage.TitleSliderEn5 = request.TitleSliderEn5;
+        //
+        //
+        // subPage.SubTitleSliderEn = request.SubTitleSliderEn;
+        // subPage.SubTitleSliderEn2 = request.SubTitleSliderEn2;
+        // subPage.SubTitleSliderEn3 = request.SubTitleSliderEn3;
+        // subPage.SubTitleSliderEn4 = request.SubTitleSliderEn4;
+        // subPage.SubTitleSliderEn5 = request.SubTitleSliderEn5;
 
 
         await _work.GenericRepository<LandingPage>().UpdateAsync(subPage, CancellationToken.None);

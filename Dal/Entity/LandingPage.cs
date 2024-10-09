@@ -4,37 +4,34 @@ public class LandingPage : BaseEntity
 {
     public string? SeoIndexTitle { get; set; }
     public string? SeoIndexDesc { get; set; }
+    public string? Logo { get; set; }
+    public string? Number { get; set; }
     public string? SeoIndexCanonical { get; set; }
-    
-    public string? ImageTopBanner { get; set; }
-    public string? ImageTopBannerHref { get; set; }
+    public string? Sec1Title { get; set; }
+    public string? Sec1SubTitle { get; set; }
+    public string? Sec1Desc { get; set; }
+    public string? Sec1Image { get; set; }
 
-    public string? ImageSlider { get; set; }
-    public string? TitleSlider { get; set; }
-    public string? SubTitleSlider { get; set; }
-    public string? TitleSliderEn { get; set; }
-    public string? SubTitleSliderEn { get; set; }
-    public string? ImageSlider2 { get; set; }
-    public string? TitleSlider2 { get; set; }
-    public string? SubTitleSlider2 { get; set; }
-    public string? TitleSliderEn2 { get; set; }
-    public string? SubTitleSliderEn2 { get; set; }
 
-    public string? ImageSlider3 { get; set; }
-    public string? TitleSlider3 { get; set; }
-    public string? SubTitleSlider3 { get; set; }
-    public string? TitleSliderEn3 { get; set; }
-    public string? SubTitleSliderEn3 { get; set; }
+    public string? Sec2Title { get; set; }
+    public string? ServiceTitle1 { get; set; }
+    public string? ServiceDesc1 { get; set; }
+    public string? ServiceHref1 { get; set; }
+    public string? ServiceImage1 { get; set; }
+    public string? ServiceLogo1 { get; set; }
 
-    public string? ImageSlider4 { get; set; }
-    public string? TitleSlider4 { get; set; }
-    public string? SubTitleSlider4 { get; set; }
-    public string? TitleSliderEn4 { get; set; }
-    public string? SubTitleSliderEn4 { get; set; }
+    public string? ServiceTitle2 { get; set; }
+    public string? ServiceDesc2 { get; set; }
+    public string? ServiceImage2 { get; set; }
+    public string? ServiceHref2 { get; set; }
 
-    public string? ImageSlider5 { get; set; }
-    public string? TitleSlider5 { get; set; }
-    public string? SubTitleSlider5 { get; set; }
-    public string? TitleSliderEn5 { get; set; }
-    public string? SubTitleSliderEn5 { get; set; }
+    public string? ServiceLogo2 { get; set; }
+
+    public string? ServiceTitle3 { get; set; }
+    public string? ServiceDesc3 { get; set; }
+    public string? ServiceImage3 { get; set; }
+    public string? ServiceHref3 { get; set; }
+
+    public string? ServiceLogo3 { get; set; }
+    public string? DescCart { get; set; }
 }

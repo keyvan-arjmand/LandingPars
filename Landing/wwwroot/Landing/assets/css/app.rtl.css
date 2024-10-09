@@ -3753,7 +3753,7 @@ h1.post__title {
 }
 
 .optech-counter-section3 {
-  padding: 130px 0 80px;
+  padding: 70px 0 80px;
 }
 @media (max-width: 991px) {
   .optech-counter-section3 {
@@ -6343,7 +6343,7 @@ span.total-amount {
 }
 
 .optech-section-padding {
-  padding: 130px 0;
+  padding: 80px 0;
 }
 @media (max-width: 991px) {
   .optech-section-padding {
@@ -6357,7 +6357,7 @@ span.total-amount {
 }
 
 .optech-section-padding2 {
-  padding: 130px 0 106px;
+  padding: 80px 0 106px;
 }
 @media (max-width: 991px) {
   .optech-section-padding2 {
@@ -6380,7 +6380,7 @@ span.total-amount {
 }
 
 .optech-section-padding4 {
-  padding: 130px 0 106px;
+  padding: 80px 0 106px;
 }
 @media (max-width: 991px) {
   .optech-section-padding4 {
@@ -6503,21 +6503,21 @@ span.total-amount {
 }
 
 .large-padding-tb4 {
-  padding: 130px 0 220px;
+  padding: 80px 0 220px;
 }
 @media (max-width: 1399px) {
   .large-padding-tb4 {
-    padding: 130px 0;
+    padding: 80px 0;
   }
 }
 @media (max-width: 991px) {
   .large-padding-tb4 {
-    padding: 100px 0;
+    padding: 60px 0;
   }
 }
 @media (max-width: 767px) {
   .large-padding-tb4 {
-    padding: 80px 0;
+    padding: 40px 0;
   }
 }
 

@@ -19,7 +19,7 @@ public class AppContext : IdentityDbContext<User, Role, int>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            "Data Source=DESKTOP-M202FR8\\KEY1;Initial Catalog=LandingPars;Integrated Security=True;Trust Server Certificate=True"
+            "Data Source=185.165.118.72;Initial Catalog=ParsLanding;User ID=ParsAdmin;Password=I$w225am;Trust Server Certificate=True"
         );
         base.OnConfiguring(optionsBuilder);
     }

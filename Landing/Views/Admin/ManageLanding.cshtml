@@ -71,302 +71,302 @@ img{width: fit-content}
     </div><!-- /.container-fluid -->
 </div>
 <section class="content">
-    <div class="container-fluid">
-        <div class="row">
+<div class="container-fluid">
+<div class="row">
 
-            <!-- Profile Image -->
+<!-- Profile Image -->
 
-            <!-- /.col -->
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header p-2">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item">
-                                <a class="nav-link " href="#Sublanding" data-toggle="tab">صفحه اصلی</a>
-                            </li>
-                        </ul>
-                    </div><!-- /.card-header -->
+<!-- /.col -->
+<div class="col-md-12">
+<div class="card">
+<div class="card-header p-2">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link " href="#Sublanding" data-toggle="tab">صفحه اصلی</a>
+        </li>
+    </ul>
+</div><!-- /.card-header -->
 
-                    <form asp-action="UpdateLanding" asp-controller="Admin" enctype="multipart/form-data" class="tab-content">
-                        <div class="tab-pane p-5 active show" id="Sublanding">
-                            <div class="card card-info card-outline mt-4">
-                                <div class="card-header">
-                                    <h3 class="card-title">
-                                        <small class="h4">محتوا اسلایدر</small>
-                                    </h3>
-                                    <!-- tools box -->
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool btn-sm"
-                                                data-widget="collapse"
-                                                data-toggle="tooltip"
-                                                title="Collapse">
-                                            <i class="fa fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool btn-sm"
-                                                data-widget="remove"
-                                                data-toggle="tooltip"
-                                                title="Remove">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <!-- /. tools -->
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body" >
-                                    <input id="Id" asp-for="id" value="@landing.Id" hidden="hidden"/>
-                                    <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)">
-                                        <div class="d-flex justify-content-between w-100">
-                                            <div class="d-flex flex-column w-50">
-                                                <label for="exampleInputPassword1">اسلایدر اول</label>
-                                                <input type="file" asp-for="ImageSlider" id="ImageSliderin" class="form-control">
-                                            </div>
-                                            <div class="input-group p-3 w-50 " style="justify-content: center;">
-                                                <img src="/Images/landing/@landing.ImageSlider" id="ImageSlider" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/>
-                                            </div>
-                                        </div>
-
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان فارسی</label>
-                                                    <input asp-for="TitleSlider" value="@landing.TitleSlider" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات فارسی</label>
-                                                    <input type="text" asp-for="SubTitleSlider" value="@landing.SubTitleSlider" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان انگلیسی</label>
-                                                    <input asp-for="TitleSliderEn" value="@landing.TitleSliderEn" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات انگلیسی</label>
-                                                    <input type="text" asp-for="SubTitleSliderEn" value="@landing.SubTitleSliderEn" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)">
-                                        <div class="d-flex justify-content-between w-100">
-                                            <div class="d-flex flex-column w-50">
-                                                <label for="exampleInputPassword1">اسلایدر دوم</label>
-                                                <input type="file" asp-for="ImageSlider2" id="ImageSliderin2" class="form-control">
-                                            </div>
-                                            <div class="input-group p-3 w-50 " style="justify-content: center;">
-                                                <img src="/Images/landing/@landing.ImageSlider2" id="ImageSlider2" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/>
-                                            </div>
-                                        </div>
-
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان فارسی</label>
-                                                    <input asp-for="TitleSlider2" value="@landing.TitleSlider2" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات فارسی</label>
-                                                    <input type="text" asp-for="SubTitleSlider2" value="@landing.SubTitleSlider2" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان انگلیسی</label>
-                                                    <input asp-for="TitleSliderEn2" value="@landing.TitleSliderEn2" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات انگلیسی</label>
-                                                    <input type="text" asp-for="SubTitleSliderEn2" value="@landing.SubTitleSliderEn2" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-
-                                    <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)">
-
-                                        <div class="d-flex justify-content-between w-100">
-                                            <div class="d-flex flex-column w-50">
-                                                <label for="exampleInputPassword1">اسلایدر سوم</label>
-                                                <input type="file" asp-for="ImageSlider3" id="ImageSliderin3" class="form-control">
-                                            </div>
-                                            <div class="input-group p-3 w-50 " style="justify-content: center;">
-                                                <img src="/Images/landing/@landing.ImageSlider3" id="ImageSlider3" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/>
-                                            </div>
-                                        </div>
-
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان فارسی</label>
-                                                    <input asp-for="TitleSlider3" value="@landing.TitleSlider3" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات فارسی</label>
-                                                    <input type="text" asp-for="SubTitleSlider3" value="@landing.SubTitleSlider3" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان انگلیسی</label>
-                                                    <input asp-for="TitleSliderEn3" value="@landing.TitleSliderEn3" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات انگلیسی</label>
-                                                    <input type="text" asp-for="SubTitleSliderEn3" value="@landing.SubTitleSliderEn3" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)">
-                                        <div class="d-flex justify-content-between w-100">
-                                            <div class="d-flex flex-column w-50">
-                                                <label for="exampleInputPassword1">اسلایدر چهارم</label>
-                                                <input type="file" asp-for="ImageSlider4" id="ImageSliderin4" class="form-control">
-                                            </div>
-                                            <div class="input-group p-3 w-50 " style="justify-content: center;">
-                                                <img src="/Images/landing/@landing.ImageSlider4" id="ImageSlider4" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/>
-                                            </div>
-                                        </div>
-
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان فارسی</label>
-                                                    <input asp-for="TitleSlider4" value="@landing.TitleSlider4" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات فارسی</label>
-                                                    <input type="text" asp-for="SubTitleSlider4" value="@landing.SubTitleSlider4" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان انگلیسی</label>
-                                                    <input asp-for="TitleSliderEn4" value="@landing.TitleSliderEn4" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات انگلیسی</label>
-                                                    <input type="text" asp-for="SubTitleSliderEn4" value="@landing.SubTitleSliderEn4" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)">
-                                        <div class="d-flex justify-content-between w-100">
-                                            <div class="d-flex flex-column w-50">
-                                                <label for="exampleInputPassword1">اسلایدر پنجم</label>
-                                                <input type="file" asp-for="ImageSlider5" id="ImageSliderin5" class="form-control">
-                                            </div>
-                                            <div class="input-group p-3 w-50 " style="justify-content: center;">
-                                                <img src="/Images/landing/@landing.ImageSlider5" id="ImageSlider5" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/>
-                                            </div>
-                                        </div>
-
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان فارسی</label>
-                                                    <input asp-for="TitleSlider5" value="@landing.TitleSlider5" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات فارسی</label>
-                                                    <input type="text" asp-for="SubTitleSlider5" value="@landing.SubTitleSlider5" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" m-2  p-3 w-100">
-                                            <div class="d-flex justify-content-between gap-2">
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">عنوان انگلیسی</label>
-                                                    <input asp-for="TitleSliderEn5" value="@landing.TitleSliderEn5" class="form-control" id="exampleInputPassword1">
-                                                </div>
-                                                <div class="d-flex flex-column w-50">
-                                                    <label for="exampleInputPassword1">توضیحات انگلیسی</label>
-                                                    <input type="text" asp-for="SubTitleSliderEn5" value="@landing.SubTitleSliderEn5" id="SmallSideBannerin" title="test" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card card-info card-outline mt-4">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    <small class="h4">محتوا سئو </small>
-                                </h3>
-                                <!-- tools box -->
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool btn-sm"
-                                            data-widget="collapse"
-                                            data-toggle="tooltip"
-                                            title="Collapse">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool btn-sm"
-                                            data-widget="remove"
-                                            data-toggle="tooltip"
-                                            title="Remove">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </div>
-                                <!-- /. tools -->
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body" style="background-color:	rgb(220,220,220,0.4)">
-                                <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
-
-                                    <div class="form-group w-50 p-3" id="">
-                                        <label>عنوان</label>
-                                        <input id="SeoTitle" asp-for="SeoIndexTitle" value="@landing.SeoIndexTitle" type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group w-50 p-3" id="">
-                                        <label>آدرس متعارف</label>
-                                        <input id="SeoCanonical" type="text" asp-for="SeoIndexCanonical" value="@landing.SeoIndexCanonical" class="form-control">
-                                    </div>
-
-                                </div>
-                                <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
-
-                                    <div class="form-group w-50 p-3" id="">
-                                        <label>توضیحات</label>
-                                        <textarea id="SeoDesc"   asp-for="SeoIndexDesc" class="form-control">@Html.Raw(landing.SeoIndexDesc)</textarea>
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center flex-nowrap gap-3 align-items-center mt-3">
-                            <div class="form-input w-100">
-                                <button type="submit" class="btn btn-primary">
-                                    ثبت
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div><!-- /.card-body -->
-        </div>
+<form asp-action="UpdateLanding" asp-controller="Admin" enctype="multipart/form-data" class="tab-content">
+<div class="tab-pane p-5 active show" id="Sublanding">
+<div class="card card-info card-outline mt-4">
+<div class="card-header">
+    <h3 class="card-title">
+        <small class="h4">محتوا اسلایدر</small>
+    </h3>
+    <!-- tools box -->
+    <div class="card-tools">
+        <button type="button" class="btn btn-tool btn-sm"
+                data-widget="collapse"
+                data-toggle="tooltip"
+                title="Collapse">
+            <i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool btn-sm"
+                data-widget="remove"
+                data-toggle="tooltip"
+                title="Remove">
+            <i class="fa fa-times"></i>
+        </button>
     </div>
+    <!-- /. tools -->
+</div>
+<!-- /.card-header -->
+@* <div class="card-body"> *@
+@*     <input id="Id" asp-for="id" value="@landing.Id" hidden="hidden"/> *@
+@*     <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)"> *@
+@*         <div class="d-flex justify-content-between w-100"> *@
+@*             <div class="d-flex flex-column w-50"> *@
+@*                 <label for="exampleInputPassword1">اسلایدر اول</label> *@
+@*                 <input type="file" asp-for="ImageSlider" id="ImageSliderin" class="form-control"> *@
+@*             </div> *@
+@*             <div class="input-group p-3 w-50 " style="justify-content: center;"> *@
+@*                 <img src="/Images/landing/@landing.ImageSlider" id="ImageSlider" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/> *@
+@*             </div> *@
+@*         </div> *@
+@* *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان فارسی</label> *@
+@*                     <input asp-for="TitleSlider" value="@landing.TitleSlider" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات فارسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSlider" value="@landing.SubTitleSlider" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان انگلیسی</label> *@
+@*                     <input asp-for="TitleSliderEn" value="@landing.TitleSliderEn" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات انگلیسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSliderEn" value="@landing.SubTitleSliderEn" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@*     <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)"> *@
+@*         <div class="d-flex justify-content-between w-100"> *@
+@*             <div class="d-flex flex-column w-50"> *@
+@*                 <label for="exampleInputPassword1">اسلایدر دوم</label> *@
+@*                 <input type="file" asp-for="ImageSlider2" id="ImageSliderin2" class="form-control"> *@
+@*             </div> *@
+@*             <div class="input-group p-3 w-50 " style="justify-content: center;"> *@
+@*                 <img src="/Images/landing/@landing.ImageSlider2" id="ImageSlider2" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/> *@
+@*             </div> *@
+@*         </div> *@
+@* *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان فارسی</label> *@
+@*                     <input asp-for="TitleSlider2" value="@landing.TitleSlider2" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات فارسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSlider2" value="@landing.SubTitleSlider2" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان انگلیسی</label> *@
+@*                     <input asp-for="TitleSliderEn2" value="@landing.TitleSliderEn2" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات انگلیسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSliderEn2" value="@landing.SubTitleSliderEn2" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@* *@
+@*     </div> *@
+@* *@
+@*     <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)"> *@
+@* *@
+@*         <div class="d-flex justify-content-between w-100"> *@
+@*             <div class="d-flex flex-column w-50"> *@
+@*                 <label for="exampleInputPassword1">اسلایدر سوم</label> *@
+@*                 <input type="file" asp-for="ImageSlider3" id="ImageSliderin3" class="form-control"> *@
+@*             </div> *@
+@*             <div class="input-group p-3 w-50 " style="justify-content: center;"> *@
+@*                 <img src="/Images/landing/@landing.ImageSlider3" id="ImageSlider3" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/> *@
+@*             </div> *@
+@*         </div> *@
+@* *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان فارسی</label> *@
+@*                     <input asp-for="TitleSlider3" value="@landing.TitleSlider3" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات فارسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSlider3" value="@landing.SubTitleSlider3" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان انگلیسی</label> *@
+@*                     <input asp-for="TitleSliderEn3" value="@landing.TitleSliderEn3" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات انگلیسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSliderEn3" value="@landing.SubTitleSliderEn3" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)"> *@
+@*         <div class="d-flex justify-content-between w-100"> *@
+@*             <div class="d-flex flex-column w-50"> *@
+@*                 <label for="exampleInputPassword1">اسلایدر چهارم</label> *@
+@*                 <input type="file" asp-for="ImageSlider4" id="ImageSliderin4" class="form-control"> *@
+@*             </div> *@
+@*             <div class="input-group p-3 w-50 " style="justify-content: center;"> *@
+@*                 <img src="/Images/landing/@landing.ImageSlider4" id="ImageSlider4" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/> *@
+@*             </div> *@
+@*         </div> *@
+@* *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان فارسی</label> *@
+@*                     <input asp-for="TitleSlider4" value="@landing.TitleSlider4" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات فارسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSlider4" value="@landing.SubTitleSlider4" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان انگلیسی</label> *@
+@*                     <input asp-for="TitleSliderEn4" value="@landing.TitleSliderEn4" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات انگلیسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSliderEn4" value="@landing.SubTitleSliderEn4" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <div class="p-2 m-3" style="background-color:	rgb(220,220,220,0.4)"> *@
+@*         <div class="d-flex justify-content-between w-100"> *@
+@*             <div class="d-flex flex-column w-50"> *@
+@*                 <label for="exampleInputPassword1">اسلایدر پنجم</label> *@
+@*                 <input type="file" asp-for="ImageSlider5" id="ImageSliderin5" class="form-control"> *@
+@*             </div> *@
+@*             <div class="input-group p-3 w-50 " style="justify-content: center;"> *@
+@*                 <img src="/Images/landing/@landing.ImageSlider5" id="ImageSlider5" style="object-fit: cover;border-radius: 8px;width: 100%;max-width: 140px" class="imageOneP"/> *@
+@*             </div> *@
+@*         </div> *@
+@* *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان فارسی</label> *@
+@*                     <input asp-for="TitleSlider5" value="@landing.TitleSlider5" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات فارسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSlider5" value="@landing.SubTitleSlider5" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*         <div class=" m-2  p-3 w-100"> *@
+@*             <div class="d-flex justify-content-between gap-2"> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">عنوان انگلیسی</label> *@
+@*                     <input asp-for="TitleSliderEn5" value="@landing.TitleSliderEn5" class="form-control" id="exampleInputPassword1"> *@
+@*                 </div> *@
+@*                 <div class="d-flex flex-column w-50"> *@
+@*                     <label for="exampleInputPassword1">توضیحات انگلیسی</label> *@
+@*                     <input type="text" asp-for="SubTitleSliderEn5" value="@landing.SubTitleSliderEn5" id="SmallSideBannerin" title="test" class="form-control"> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+@* </div> *@
+</div>
+
+<div class="card card-info card-outline mt-4">
+    <div class="card-header">
+        <h3 class="card-title">
+            <small class="h4">محتوا سئو </small>
+        </h3>
+        <!-- tools box -->
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool btn-sm"
+                    data-widget="collapse"
+                    data-toggle="tooltip"
+                    title="Collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool btn-sm"
+                    data-widget="remove"
+                    data-toggle="tooltip"
+                    title="Remove">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <!-- /. tools -->
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body" style="background-color:	rgb(220,220,220,0.4)">
+        <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
+
+            <div class="form-group w-50 p-3" id="">
+                <label>عنوان</label>
+                <input id="SeoTitle" asp-for="SeoIndexTitle" value="@landing.SeoIndexTitle" type="text" class="form-control">
+            </div>
+            <div class="form-group w-50 p-3" id="">
+                <label>آدرس متعارف</label>
+                <input id="SeoCanonical" type="text" asp-for="SeoIndexCanonical" value="@landing.SeoIndexCanonical" class="form-control">
+            </div>
+
+        </div>
+        <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
+
+            <div class="form-group w-50 p-3" id="">
+                <label>توضیحات</label>
+                <textarea id="SeoDesc"   asp-for="SeoIndexDesc" class="form-control">@Html.Raw(landing.SeoIndexDesc)</textarea>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+<div class="d-flex justify-content-center flex-nowrap gap-3 align-items-center mt-3">
+    <div class="form-input w-100">
+        <button type="submit" class="btn btn-primary">
+            ثبت
+        </button>
+    </div>
+</div>
+
+</form>
+</div>
+</div><!-- /.card-body -->
+</div>
+</div>
 </section>
 
 @section script{
