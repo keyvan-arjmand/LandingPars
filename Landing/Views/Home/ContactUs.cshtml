@@ -1,11 +1,21 @@
-﻿@using Dal.Entity
+﻿@using System.Globalization
+@using Dal.Entity
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "_Layout";
     List<Category> categories = ViewBag.Cats;
     SubPage page1 = ViewBag.Page;
-}
+    ViewData["Title"] = @page1.SeoTitle;
+    LandingPage landingPage = ViewBag.Landing;
 
+}
+@section HeadNumber2
+    {
+<a href="tel:@landingPage.Number" >
+    <i class="ri-phone-fill"></i>@landingPage.Number
+</a
+>
+}
 @section meta
 {
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
@@ -21,64 +31,95 @@
     <meta property="og:image:height" content="760"/>
     <meta property="og:image:type" content="image/jpeg"/>
 }
+@if (CultureInfo.CurrentCulture.Name == "fa")
+{
+    
+@section DescCart
+{
+<p>
+    @landingPage.DescCart
+</p>
+}
 
 @section Header
 {
-    <ul class="site-menu-main">
-        @{
-            foreach (var i in categories)
-            {
-                string id = "submenu-" + i.Id;
-                if (i.Pages.Count > 1)
-                {
-                    <li class="nav-item nav-item-has-children">
-                        <a
-                            class="nav-link-item drop-trigger"
-                            href="@i.Href">
-                            @i.Title
-                            <i class="ri-arrow-down-s-fill">
-                            </i
-                            >
-                        </a>
-                        <ul class="sub-menu" id="@id">
+<ul class="site-menu-main">
+    @{
+    foreach (var i in categories)
+    {
+    string id = "submenu-" + i.Id;
+    if (i.Pages.Count > 1)
+    {
+    <li class="nav-item nav-item-has-children">
+        <a
+            class="nav-link-item drop-trigger"
+            href="@i.Href">
+            @i.Title
+            <i class="ri-arrow-down-s-fill">
+            </i
+            >
+        </a>
+        <ul class="sub-menu" id="@id">
 
-                            @foreach (var q in i.Pages)
-                            {
-                                <li class="sub-menu--item">
-                                    <a href="@q.Href">
+            @foreach (var q in i.Pages)
+            {
+            <li class="sub-menu--item">
+                <a href="@q.Href">
                                         <span class="menu-item-text">
                                             @q.Title
                                         </span
                                         >
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item">
-                        <a class="nav-link-item" href="@i.Href">@i.Title</a>
-                    </li>
-                }
+                </a>
+            </li>
             }
-        }
-    </ul>
+        </ul>
+
+    </li>
+    }
+    else
+    {
+    <li class="nav-item">
+        <a class="nav-link-item" href="@i.Href">@i.Title</a>
+    </li>
+    }
+    }
+    }
+</ul>
+}
+@section headLogo2
+{
+    <img
+        alt=""
+        class="light-version-logo"
+        src="/Images/Logo/@landingPage.Logo"/>
+}
+@section headLogo
+{
+<img
+    alt=""
+    class="light-version-logo"
+    src="/Images/Logo/@landingPage.Logo"/>
+}
+
+@section HeadNumber
+{
+<a href="tel:02143000107">
+    <i class="ri-phone-fill"></i>@landingPage.Number
+</a
+>
 }
 
 <div
     class="optech-breadcrumb"
-    style="background-image: url(./Landing/assets/images/breadcrumb/breadcrumb.png)">
+    style="background-image: url(/landing/assets/images/breadcrumb/breadcrumb.png)">
     <div class="container">
-        <h1 class="post__title">با ما تماس بگیرید</h1>
+        <h1 class="post__title">تماس با ما</h1>
         <nav class="breadcrumbs">
             <ul>
                 <li>
-                    <a href="index-01.html">خانه</a>
+                    <a href="@Url.Action("Index","Home")">خانه</a>
                 </li>
-                <li aria-current="page">با ما تماس بگیرید</li>
+                <li aria-current="page">تماس با ما</li>
             </ul>
         </nav>
     </div>
@@ -95,30 +136,30 @@
                 <div class="optech-main-form bg-light1 ml60 aos-init aos-animate" data-aos="fade-up" data-aos-duration="800">
                     <h3>فرم تماس را پر کنید</h3>
                     <p>با ما تماس بگیرید</p>
-                    <form >
+                    <form    asp-action="SendMessage" asp-controller="Home" method="post">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="optech-main-field">
-                                    <input placeholder="نام شما" type="text">
+                                    <input placeholder="نام شما" type="text" name="name">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="optech-main-field">
-                                    <input placeholder="شماره تلفن" type="number">
+                                    <input placeholder="شماره تلفن" type="number" name="number">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="optech-main-field">
-                                    <input placeholder="آدرس ایمیل" type="email">
+                                    <input placeholder="آدرس ایمیل" type="email" name="email">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="optech-main-field">
-                                    <textarea name="textarea" placeholder="پیام خود را بنویسید"></textarea>
+                                    <textarea name="desc" placeholder="پیام خود را بنویسید"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <button data-text="ارسال پیام" id="optech-main-form-btn" type="button">
+                                <button data-text="ارسال پیام"  type="submit">
                                     <span class="btn-wraper">ارسال پیام</span>
                                 </button>
                             </div>
@@ -129,11 +170,147 @@
         </div>
     </div>
 </div>
-<!-- End breadcrumb -->
+
+}
+else
+{
+    
+@section DescCart
+{
+<p>
+    @landingPage.DescCartEn
+</p>
+}
+
+@section Header
+{
+<ul class="site-menu-main">
+    @{
+    foreach (var i in categories)
+    {
+    string id = "submenu-" + i.Id;
+    if (i.Pages.Count > 1)
+    {
+    <li class="nav-item nav-item-has-children">
+        <a
+            class="nav-link-item drop-trigger"
+            href="@i.Href">
+            @i.Title
+            <i class="ri-arrow-down-s-fill">
+            </i
+            >
+        </a>
+        <ul class="sub-menu" id="@id">
+
+            @foreach (var q in i.Pages)
+            {
+            <li class="sub-menu--item">
+                <a href="@q.Href">
+                                        <span class="menu-item-text">
+                                            @q.Title
+                                        </span
+                                        >
+                </a>
+            </li>
+            }
+        </ul>
+
+    </li>
+    }
+    else
+    {
+    <li class="nav-item">
+        <a class="nav-link-item" href="@i.Href">@i.Title</a>
+    </li>
+    }
+    }
+    }
+</ul>
+}
+@section headLogo2
+{
+    <img
+        alt=""
+        class="light-version-logo"
+        src="/Images/Logo/@landingPage.Logo"/>
+}
+@section headLogo
+{
+<img
+    alt=""
+    class="light-version-logo"
+    src="/Images/Logo/@landingPage.Logo"/>
+}
+
+@section HeadNumber
+{
+<a href="tel:02143000107">
+    <i class="ri-phone-fill"></i>@landingPage.Number
+</a
+>
+}
+
+<div
+    class="optech-breadcrumb"
+   id="pagetitle">
+    <div class="container">
+        <h1 class="post__title">contact us</h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li>
+                    <a href="@Url.Action("Index","Home")">home</a>
+                </li>
+                <li aria-current="page">contact us</li>
+            </ul>
+        </nav>
+    </div>
+</div>
 <div class="section optech-section-padding">
     <div class="container">
         <div class="row">
-            @Html.Raw(page1.Desc)
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="optech-default-content mr40">
+                    @Html.Raw(page1.DescEn)
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="optech-main-form bg-light1 ml60 aos-init aos-animate" data-aos="fade-up" data-aos-duration="800">
+                    <h3>Fill out the contact form</h3>
+                    <p>contact us</p>
+                    <form    asp-action="SendMessage" asp-controller="Home" method="post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="optech-main-field">
+                                    <input placeholder="name" type="text" name="name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="optech-main-field">
+                                    <input placeholder="number" type="number" name="number">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="optech-main-field">
+                                    <input placeholder="email" type="email" name="email">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="optech-main-field">
+                                    <textarea name="desc" placeholder="message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button data-text="submit"  type="submit">
+                                    <span class="btn-wraper">submit</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<!-- End breadcrumb -->
+
+}  

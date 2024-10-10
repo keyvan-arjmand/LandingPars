@@ -1,8 +1,12 @@
-﻿@using Dal.Entity
+﻿@using System.Globalization
+@using Dal.Entity
 @{
     Layout = "_Layout";
     List<Category> categories = ViewBag.Cats;
     SubPage page1 = ViewBag.Page;
+    ViewData["Title"] = @page1.SeoTitle;
+    LandingPage landingPage = ViewBag.Landing;
+
 }
 
 @section meta
@@ -19,6 +23,130 @@
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="760"/>
     <meta property="og:image:type" content="image/jpeg"/>
+}
+@section HeadNumber2
+    {
+<a href="tel:@landingPage.Number" >
+    <i class="ri-phone-fill"></i>@landingPage.Number
+</a
+>
+}
+@if (CultureInfo.CurrentCulture.Name == "fa")
+{
+    
+@section DescCart
+{
+    <p>
+        @landingPage.DescCart
+    </p>
+}
+
+@section Header
+{
+    <ul class="site-menu-main">
+        @{
+            foreach (var i in categories)
+            {
+                string id = "submenu-" + i.Id;
+                if (i.Pages.Count > 1)
+                {
+                    <li class="nav-item nav-item-has-children">
+                        <a
+                            class="nav-link-item drop-trigger"
+                            href="@i.Href">
+                            @i.Title
+                            <i class="ri-arrow-down-s-fill">
+                            </i
+                            >
+                        </a>
+                        <ul class="sub-menu" id="@id">
+
+                            @foreach (var q in i.Pages)
+                            {
+                                <li class="sub-menu--item">
+                                    <a href="@q.Href">
+                                        <span class="menu-item-text">
+                                            @q.Title
+                                        </span
+                                        >
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link-item" href="@i.Href">@i.Title</a>
+                    </li>
+                }
+            }
+        }
+    </ul>
+}
+@section headLogo2
+{
+    <img
+        alt=""
+        class="light-version-logo"
+        src="/Images/Logo/@landingPage.Logo"/>
+}
+@section headLogo
+{
+    <img
+        alt=""
+        class="light-version-logo"
+        src="/Images/Logo/@landingPage.Logo"/>
+}
+
+@section HeadNumber
+{
+    <a href="tel:02143000107">
+        <i class="ri-phone-fill"></i>@landingPage.Number
+    </a
+    >
+}
+
+<div
+    class="optech-breadcrumb"
+    style="background-image: url(./landing/assets/images/breadcrumb/breadcrumb.png)">
+    <div class="container">
+        <h1 class="post__title">@page1.Title</h1>
+        <nav class="breadcrumbs">
+            <ul>
+                <li>
+                    <a href="@Url.Action("Index", "Home")">خانه</a>
+                </li>
+                <li aria-current="page">@page1.Title</li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- End breadcrumb -->
+<div class="section optech-section-padding">
+    <div class="container">
+        <div class="row">
+            @Html.Raw(page1.Desc)
+        </div>
+    </div>
+</div>
+}
+else
+{
+    @section headLogo2
+    {
+        <img
+            alt=""
+            class="light-version-logo"
+            src="/Images/Logo/@landingPage.Logo"/>
+    } 
+@section DescCart
+{
+    <p>
+        @landingPage.DescCartEn
+    </p>
 }
 
 @section Header
@@ -67,9 +195,25 @@
     </ul>
 }
 
+@section headLogo
+{
+    <img
+        alt=""
+        class="light-version-logo"
+        src="/Images/Logo/@landingPage.Logo"/>
+}
+
+@section HeadNumber
+{
+    <a href="tel:02143000107">
+        <i class="ri-phone-fill"></i>@landingPage.Number
+    </a
+    >
+}
+
 <div
     class="optech-breadcrumb"
-    style="background-image: url(./landing/assets/images/breadcrumb/breadcrumb.png)">
+    style="background-image: url(landing/assets/images/breadcrumb/breadcrumb.png)">
     <div class="container">
         <h1 class="post__title">@page1.Title</h1>
         <nav class="breadcrumbs">
@@ -86,7 +230,8 @@
 <div class="section optech-section-padding">
     <div class="container">
         <div class="row">
-            @Html.Raw(page1.Desc)
+            @Html.Raw(page1.DescEn)
         </div>
     </div>
 </div>
+}

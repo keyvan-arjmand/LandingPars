@@ -19,7 +19,7 @@ public class AppContext : IdentityDbContext<User, Role, int>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            "Data Source=185.165.118.72;Initial Catalog=ParsLanding;User ID=ParsAdmin;Password=I$w225am;Trust Server Certificate=True"
+            "Data Source=185.165.118.72;Initial Catalog=Landing;User ID=Pars_User;Password=I$w225am!K;Trust Server Certificate=True"
         );
         base.OnConfiguring(optionsBuilder);
     }
@@ -28,6 +28,7 @@ public class AppContext : IdentityDbContext<User, Role, int>
     DbSet<Brand> Brands { set; get; }
     DbSet<SubPage> SubPages { set; get; }
     DbSet<Category> Categories { set; get; }
+    DbSet<Message> Messages { set; get; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

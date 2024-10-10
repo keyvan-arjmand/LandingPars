@@ -89,6 +89,66 @@ public class AdminController : Controller
         return View();
     }
 
+    public async Task<ActionResult> ManageService()
+    {
+        ViewBag.SubPages =
+            await _work.GenericRepository<LandingPage>().TableNoTracking.FirstOrDefaultAsync();
+        return View();
+    }
+
+    public async Task<ActionResult> ServiceDetail(int id)
+    {
+        if (id == 1)
+        {
+            ViewBag.SubPage =
+                await _work.GenericRepository<LandingPage>().TableNoTracking.Select(x => new ServiceDto
+                {
+                    Id = 1,
+                    ServiceDesc = x.ServiceDesc1,
+                    ServiceHref = x.ServiceHref1,
+                    ServiceImage = x.ServiceImage1,
+                    ServiceLogo = x.ServiceLogo1,
+                    ServiceDesc1En = x.ServiceDesc1En,
+                    ServiceTitle = x.ServiceTitle1,
+                    ServiceTitleEn = x.ServiceTitle1En
+                }).FirstOrDefaultAsync();
+        }
+
+        if (id == 2)
+        {
+            ViewBag.SubPage =
+                await _work.GenericRepository<LandingPage>().TableNoTracking.Select(x => new ServiceDto
+                {
+                    Id = 2,
+                    ServiceDesc = x.ServiceDesc2,
+                    ServiceHref = x.ServiceHref2,
+                    ServiceImage = x.ServiceImage2,
+                    ServiceLogo = x.ServiceLogo2,
+                    ServiceDesc1En = x.ServiceDesc2En,
+                    ServiceTitle = x.ServiceTitle2,
+                    ServiceTitleEn = x.ServiceTitle2En
+                }).FirstOrDefaultAsync();
+        }
+
+        if (id == 3)
+        {
+            ViewBag.SubPage =
+                await _work.GenericRepository<LandingPage>().TableNoTracking.Select(x => new ServiceDto
+                {
+                    Id = 3,
+                    ServiceDesc = x.ServiceDesc3,
+                    ServiceHref = x.ServiceHref3,
+                    ServiceImage = x.ServiceImage3,
+                    ServiceLogo = x.ServiceLogo3,
+                    ServiceDesc1En = x.ServiceDesc3En,
+                    ServiceTitle = x.ServiceTitle3,
+                    ServiceTitleEn = x.ServiceTitle3En
+                }).FirstOrDefaultAsync();
+        }
+
+        return View();
+    }
+
     public async Task<ActionResult> SubPageDetail(int id)
     {
         ViewBag.SubPage =
@@ -213,6 +273,60 @@ public class AdminController : Controller
         return RedirectToAction("SubPage");
     }
 
+    public async Task<ActionResult> UpdateService(ServiceDto request)
+    {
+        var subPage = await _work.GenericRepository<LandingPage>().Table.FirstOrDefaultAsync();
+        Upload up = new Upload(_webHostEnvironment);
+
+        if (request.Id == 1)
+        {
+            subPage.ServiceTitle1 = request.ServiceTitle;
+            subPage.ServiceTitle1En = request.ServiceTitleEn;
+            subPage.ServiceDesc1 = request.ServiceDesc;
+            subPage.ServiceDesc1En = request.ServiceDesc1En;
+            subPage.ServiceHref1 = request.ServiceHref;
+            subPage.ServiceLogo1 = request.Logo != null
+                ? up.Uploadfile(request.Logo, "Logo")
+                : subPage.ServiceLogo1;
+            subPage.ServiceImage1 = request.Image != null
+                ? up.Uploadfile(request.Image, "Service")
+                : subPage.ServiceImage1;
+        }
+
+        if (request.Id == 2)
+        {
+            subPage.ServiceTitle2 = request.ServiceTitle;
+            subPage.ServiceTitle2En = request.ServiceTitleEn;
+            subPage.ServiceDesc2 = request.ServiceDesc;
+            subPage.ServiceDesc2En = request.ServiceDesc1En;
+            subPage.ServiceHref2 = request.ServiceHref;
+            subPage.ServiceLogo2 = request.Logo != null
+                ? up.Uploadfile(request.Logo, "Logo")
+                : subPage.ServiceLogo2;
+            subPage.ServiceImage2 = request.Image != null
+                ? up.Uploadfile(request.Image, "Service")
+                : subPage.ServiceImage2;
+        }
+
+        if (request.Id == 3)
+        {
+            subPage.ServiceTitle3 = request.ServiceTitle;
+            subPage.ServiceTitle3En = request.ServiceTitleEn;
+            subPage.ServiceDesc3 = request.ServiceDesc;
+            subPage.ServiceDesc3En = request.ServiceDesc1En;
+            subPage.ServiceHref3 = request.ServiceHref;
+            subPage.ServiceLogo3 = request.Logo != null
+                ? up.Uploadfile(request.Logo, "Logo")
+                : subPage.ServiceLogo3;
+            subPage.ServiceImage3 = request.Image != null
+                ? up.Uploadfile(request.Image, "Service")
+                : subPage.ServiceImage3;
+        }
+
+        await _work.GenericRepository<LandingPage>().UpdateAsync(subPage, CancellationToken.None);
+        return RedirectToAction("ManageService");
+    }
+
     public async Task<ActionResult> UpdateLanding(LandingDto request)
     {
         var subPage = await _work.GenericRepository<LandingPage>().Table.FirstOrDefaultAsync(x => x.Id == request.id);
@@ -220,50 +334,23 @@ public class AdminController : Controller
         subPage.SeoIndexTitle = request.SeoIndexTitle;
         subPage.SeoIndexDesc = request.SeoIndexDesc;
         subPage.SeoIndexCanonical = request.SeoIndexCanonical;
+        subPage.Number = request.Number;
+        subPage.Sec1Title = request.Sec1Title;
+        subPage.Sec1TitleEn = request.Sec1TitleEn;
+        subPage.Sec1SubTitle = request.Sec1SubTitle;
+        subPage.Sec1SubTitleEn = request.Sec1SubTitleEn;
+        subPage.Sec1Desc = request.Sec1Desc;
+        subPage.Sec1DescEn = request.Sec1DescEn;
+        subPage.DescCart = request.DescCart;
+        subPage.DescCartEn = request.DescCartEn;
 
         Upload up = new Upload(_webHostEnvironment);
-
-        // subPage.ImageSlider = request.ImageSlider != null
-        //     ? up.Uploadfile(request.ImageSlider, "landing")
-        //     : subPage.ImageSlider;
-        // subPage.ImageSlider2 = request.ImageSlider2 != null
-        //     ? up.Uploadfile(request.ImageSlider2, "landing")
-        //     : subPage.ImageSlider2;
-        // subPage.ImageSlider3 =  request.ImageSlider3 != null
-        //     ? up.Uploadfile(request.ImageSlider3, "landing")
-        //     : subPage.ImageSlider3;
-        // subPage.ImageSlider4 =  request.ImageSlider4 != null
-        //     ? up.Uploadfile(request.ImageSlider4, "landing")
-        //     : subPage.ImageSlider4;
-        // subPage.ImageSlider5 =  request.ImageSlider5 != null
-        //     ? up.Uploadfile(request.ImageSlider5, "landing")
-        //     : subPage.ImageSlider5;
-        //
-        // subPage.TitleSlider = request.TitleSlider;
-        // subPage.TitleSlider2 = request.TitleSlider2;
-        // subPage.TitleSlider3 = request.TitleSlider3;
-        // subPage.TitleSlider4 = request.TitleSlider4;
-        // subPage.TitleSlider5 = request.TitleSlider5;
-        //
-        // subPage.SubTitleSlider = request.SubTitleSlider;
-        // subPage.SubTitleSlider2 = request.SubTitleSlider2;
-        // subPage.SubTitleSlider3 = request.SubTitleSlider3;
-        // subPage.SubTitleSlider4 = request.SubTitleSlider4;
-        // subPage.SubTitleSlider5 = request.SubTitleSlider5;
-        //
-        // subPage.TitleSliderEn = request.TitleSliderEn;
-        // subPage.TitleSliderEn2 = request.TitleSliderEn2;
-        // subPage.TitleSliderEn3 = request.TitleSliderEn3;
-        // subPage.TitleSliderEn4 = request.TitleSliderEn4;
-        // subPage.TitleSliderEn5 = request.TitleSliderEn5;
-        //
-        //
-        // subPage.SubTitleSliderEn = request.SubTitleSliderEn;
-        // subPage.SubTitleSliderEn2 = request.SubTitleSliderEn2;
-        // subPage.SubTitleSliderEn3 = request.SubTitleSliderEn3;
-        // subPage.SubTitleSliderEn4 = request.SubTitleSliderEn4;
-        // subPage.SubTitleSliderEn5 = request.SubTitleSliderEn5;
-
+        subPage.Logo = request.Logo != null
+            ? up.Uploadfile(request.Logo, "Logo")
+            : subPage.Logo;
+        subPage.Sec1Image = request.Sec1Image != null
+            ? up.Uploadfile(request.Sec1Image, "banner")
+            : subPage.Sec1Image;
 
         await _work.GenericRepository<LandingPage>().UpdateAsync(subPage, CancellationToken.None);
         return RedirectToAction("ManageLanding");
@@ -446,6 +533,30 @@ public class AdminController : Controller
         else
         {
             return View("Index");
+        }
+    }
+
+    public async Task<ActionResult> ManageContact(string search)
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                ViewBag.Contact = await _work.GenericRepository<Message>().TableNoTracking
+                    .Where(x => x.Name.Contains(search) || x.Number.Contains(search))
+                    .OrderByDescending(x => x.InsertDate).ToListAsync();
+            }
+            else
+            {
+                ViewBag.Contact = await _work.GenericRepository<Message>().TableNoTracking
+                    .OrderByDescending(x => x.InsertDate).ToListAsync();
+            }
+
+            return View();
+        }
+        else
+        {
+            return RedirectToAction("Login");
         }
     }
 }
