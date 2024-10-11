@@ -1,0 +1,619 @@
+﻿@using System.Globalization
+@using Dal.Entity
+@{
+    Layout = "_Layout";
+    List<Category> categories = ViewBag.Cats;
+    List<Brand> brands = ViewBag.Brand;
+    LandingPage landingPage = ViewBag.Landing;
+    var imageSec1 = "./images/banner/" + landingPage.Sec1Image;
+    ViewData["Title"] = @landingPage.SeoIndexTitle;
+}
+
+@section HeadNumber2
+{
+    <a href="tel:@landingPage.Number">
+        <i class="ri-phone-fill"></i>@landingPage.Number
+    </a>
+}
+
+@section headLogo2
+{
+    <img
+        alt=""
+        class="light-version-logo"
+        src="/Images/Logo/@landingPage.Logo"/>
+}
+
+@if (CultureInfo.CurrentCulture.Name == "fa")
+{
+    @section DescCart
+    {
+        <p>
+            @landingPage.DescCart
+        </p>
+    }
+
+    @section Header
+    {
+        <ul class="site-menu-main">
+            @{
+                foreach (var i in categories)
+                {
+                    string id = "submenu-" + i.Id;
+                    if (i.Pages.Count > 1)
+                    {
+                        <li class="nav-item nav-item-has-children">
+                            <a
+                                class="nav-link-item drop-trigger"
+                                href="@i.Href">
+                                @i.Title
+                                <i class="ri-arrow-down-s-fill">
+                                </i
+                                >
+                            </a>
+                            <ul class="sub-menu" id="@id">
+
+                                @foreach (var q in i.Pages)
+                                {
+                                    <li class="sub-menu--item">
+                                        <a href="@q.Href">
+                                            <span class="menu-item-text">
+                                                @q.Title
+                                            </span
+                                            >
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link-item" href="@i.Href">@i.Title</a>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    }
+
+    @section headLogo
+    {
+        <img
+            alt=""
+            class="light-version-logo"
+            src="/Images/Logo/@landingPage.Logo"/>
+    }
+
+    @section HeadNumber
+    {
+        <a href="tel:@landingPage.Number">
+            <i class="ri-phone-fill"></i>@landingPage.Number
+        </a
+        >
+    }
+  
+    <div
+        class="optech-hero-section7 bg-cover"
+        style="background-image: url(@imageSec1)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 d-flex align-items-center">
+                    <div class="optech-hero-content dark-color sm">
+                        <h5>@landingPage.Sec1Title</h5>
+                        <h1>@landingPage.Sec1SubTitle</h1>
+                        <p>
+                            @landingPage.Sec1Desc
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End section -->
+
+    <div class="section large-padding-tb4 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="optech-thumb extra-ml">
+                        <img alt="" data-aos="fade-up" data-aos-duration="600" src="/Landing/assets/images/v3/thumb3.png" class="aos-init aos-animate">
+                        <div class="optech-shape3">
+                            <img alt="" src="/Landing/assets/images/shape/shape3.svg">
+                        </div>
+                        <div class="optech-shape4">
+                            <img alt="" src="/Landing/assets/images/shape/shape2.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center">
+                    <div class="optech-default-content mr40">
+                        <h2>@landingPage.Sec2Title</h2>
+                        <div class="optech-extra-mt">
+                            <div class="optech-iconbox-wrap2 rt-mb-35">
+                                <div class="optech-iconbox-icon2">
+                                    <img alt="" src="/Images/Logo/@landingPage.ServiceLogo1">
+                                </div>
+                                <div class="optech-iconbox-data2">
+                                    <a href="@landingPage.ServiceHref1">
+                                        <h5>@landingPage.ServiceTitle1</h5>
+                                    </a>
+                                    <p>
+                                        @landingPage.ServiceDesc1
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="optech-iconbox-wrap2 rt-mb-35">
+                                <div class="optech-iconbox-icon2">
+                                    <img alt="" src="/Images/Logo/@landingPage.ServiceLogo2">
+                                </div>
+                                <div class="optech-iconbox-data2">
+                                    <a href="@landingPage.ServiceHref2">
+                                        <h5>@landingPage.ServiceTitle2</h5>
+                                    </a>
+                                    <p>
+                                        @landingPage.ServiceDesc2
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="optech-iconbox-wrap2 mb-0">
+                                <div class="optech-iconbox-icon2">
+                                    <img alt="" src="/Images/Logo/@landingPage.ServiceLogo3">
+                                </div>
+                                <div class="optech-iconbox-data2">
+                                    <a href="@landingPage.ServiceHref3">
+                                        <h5>@landingPage.ServiceTitle3</h5>
+                                    </a>
+                                    <p>
+                                        @landingPage.ServiceDesc3
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="optech-divider color2"></div>
+    </div>
+    <div class="optech-brand-section2 bg-light1">
+        <div class="container">
+            <div class="optech-brand-title dark-color">
+                <p>برند های معتبر همکار</p>
+            </div>
+            <div class="optech-brand-slider">
+                @foreach (var i in brands)
+                {
+                    <div class="optech-brand-item">
+                        <img alt="" src="/Images/brand/@i.Logo"/>
+                    </div>
+                    <div class="optech-brand-item">
+                        <img alt="" src="/Images/brand/@i.Logo"/>
+                    </div>
+                    <div class="optech-brand-item">
+                        <img alt="" src="/Images/brand/@i.Logo"/>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="section optech-section-padding">
+        <div class="container">
+            <div class="optech-section-title center">
+                <h2>خدمات ما</h2>
+            </div>
+            <div
+                class="optech-4column-slider2"
+                data-aos="fade-up"
+                data-aos-duration="800">
+                <div class="optech-service-box">
+                    <div class="optech-service-thumb">
+                        <img alt="" src="/Images/Service/@landingPage.ServiceImage1"/>
+                        <div class="optech-service-data">
+                            <div class="optech-service-icon">
+                                <img alt="" src="/Images/Logo/@landingPage.ServiceLogo1"/>
+                            </div>
+                            <a href="@landingPage.ServiceHref1">
+                                <h5>@landingPage.ServiceTitle1</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="optech-service-box">
+                    <div class="optech-service-thumb">
+                        <img alt="" src="/Images/Service/@landingPage.ServiceImage2"/>
+                        <div class="optech-service-data">
+                            <div class="optech-service-icon">
+                                <img alt="" src="/Images/Logo/@landingPage.ServiceLogo2"/>
+                            </div>
+                            <a href="@landingPage.ServiceHref2">
+                                <h5>@landingPage.ServiceTitle2</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="optech-service-box">
+                    <div class="optech-service-thumb">
+                        <img alt="" src="/Images/Service/@landingPage.ServiceImage3"/>
+                        <div class="optech-service-data">
+                            <div class="optech-service-icon">
+                                <img alt="" src="/Images/Logo/@landingPage.ServiceLogo3"/>
+                            </div>
+                            <a href="@landingPage.ServiceHref3">
+                                <h5>@landingPage.ServiceTitle3</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="optech-counter-section3">
+        <div class="container">
+            <div id="optech-counter2"></div>
+            <div class="optech-counter-wrap3">
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="400">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon1.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="1800">1800</span>+
+                        </div>
+                        <p>گارانتی کاالی موفق</p>
+                    </div>
+                </div>
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="600">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon2.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="600">600</span>+
+                        </div>
+                        <p>برندهای هم کار</p>
+                    </div>
+                </div>
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="800">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon3.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="200">200</span>+
+                        </div>
+                        <p>شبکه توزیع کالا</p>
+                    </div>
+                </div>
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon4.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="86">86</span>٪
+                        </div>
+                        <p>رضایت مشتری</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="optech-divider color2"></div>
+    </div>
+}
+else
+{
+    @section DescCart
+    {
+        <p>
+            @landingPage.DescCartEn
+        </p>
+    }
+
+    @section Header
+    {
+        <ul class="site-menu-main">
+            @{
+                foreach (var i in categories)
+                {
+                    string id = "submenu-" + i.Id;
+                    if (i.Pages.Count > 1)
+                    {
+                        <li class="nav-item nav-item-has-children">
+                            <a
+                                class="nav-link-item drop-trigger"
+                                href="@i.Href">
+                                @i.Title
+                                <i class="ri-arrow-down-s-fill">
+                                </i
+                                >
+                            </a>
+                            <ul class="sub-menu" id="@id">
+
+                                @foreach (var q in i.Pages)
+                                {
+                                    <li class="sub-menu--item">
+                                        <a href="@q.Href">
+                                            <span class="menu-item-text">
+                                                @q.Title
+                                            </span
+                                            >
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link-item" href="@i.Href">@i.Title</a>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    }
+
+    @section headLogo
+    {
+        <img
+            alt=""
+            class="light-version-logo"
+            src="/Images/Logo/@landingPage.Logo"/>
+    }
+
+
+    @section HeadNumber
+    {
+        <a href="tel:02143000107">
+            <i class="ri-phone-fill"></i>@landingPage.Number
+        </a
+        >
+    }
+
+    <div
+        class="optech-hero-section7 bg-cover"
+        style="background-image: url(@imageSec1)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 d-flex align-items-center">
+                    <div class="optech-hero-content dark-color sm">
+                        <h5>@landingPage.Sec1TitleEn</h5>
+                        <h1>@landingPage.Sec1SubTitleEn</h1>
+                        <p>
+                            @landingPage.Sec1DescEn
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End section -->
+
+    <div class="section large-padding-tb4 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="optech-thumb extra-ml">
+                        <img alt="" data-aos="fade-up" data-aos-duration="600" src="/Landing/assets/images/v3/thumb3.png" class="aos-init aos-animate">
+                        <div class="optech-shape3">
+                            <img alt="" src="/Landing/assets/images/shape/shape3.svg">
+                        </div>
+                        <div class="optech-shape4">
+                            <img alt="" src="/Landing/assets/images/shape/shape2.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center">
+                    <div class="optech-default-content mr40">
+                        <h2>@landingPage.Sec2TitleEn</h2>
+                        <div class="optech-extra-mt">
+                            <div class="optech-iconbox-wrap2 rt-mb-35">
+                                <div class="optech-iconbox-icon2">
+                                    <img alt="" src="/Images/Logo/@landingPage.ServiceLogo1">
+                                </div>
+                                <div class="optech-iconbox-data2">
+                                    <a href="@landingPage.ServiceHref1">
+                                        <h5>@landingPage.ServiceTitle1En</h5>
+                                    </a>
+                                    <p>
+                                        @landingPage.ServiceDesc1En
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="optech-iconbox-wrap2 rt-mb-35">
+                                <div class="optech-iconbox-icon2">
+                                    <img alt="" src="/Images/Logo/@landingPage.ServiceLogo2">
+                                </div>
+                                <div class="optech-iconbox-data2">
+                                    <a href="@landingPage.ServiceHref2">
+                                        <h5>@landingPage.ServiceTitle2En</h5>
+                                    </a>
+                                    <p>
+                                        @landingPage.ServiceDesc2En
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="optech-iconbox-wrap2 mb-0">
+                                <div class="optech-iconbox-icon2">
+                                    <img alt="" src="/Images/Logo/@landingPage.ServiceLogo3">
+                                </div>
+                                <div class="optech-iconbox-data2">
+                                    <a href="@landingPage.ServiceHref3">
+                                        <h5>@landingPage.ServiceTitle3En</h5>
+                                    </a>
+                                    <p>
+                                        @landingPage.ServiceDesc3En
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="optech-divider color2"></div>
+    </div>
+    <div class="optech-brand-section2 bg-light1">
+        <div class="container">
+            <div class="optech-brand-title dark-color">
+                <p>Accredited partner brands</p>
+            </div>
+            <div class="optech-brand-slider">
+                @foreach (var i in brands)
+                {
+                    <div class="optech-brand-item">
+                        <img alt="" src="/Images/brand/@i.Logo"/>
+                    </div>
+                    <div class="optech-brand-item">
+                        <img alt="" src="/Images/brand/@i.Logo"/>
+                    </div>
+                    <div class="optech-brand-item">
+                        <img alt="" src="/Images/brand/@i.Logo"/>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="section optech-section-padding">
+        <div class="container">
+            <div class="optech-section-title center">
+                <h2>Our services</h2>
+            </div>
+            <div
+                class="optech-4column-slider2"
+                data-aos="fade-up"
+                data-aos-duration="800">
+                <div class="optech-service-box">
+                    <div class="optech-service-thumb">
+                        <img alt="" src="/Images/Service/@landingPage.ServiceImage1"/>
+                        <div class="optech-service-data">
+                            <div class="optech-service-icon">
+                                <img alt="" src="/Images/Logo/@landingPage.ServiceLogo1"/>
+                            </div>
+                            <a href="@landingPage.ServiceHref1">
+                                <h5>@landingPage.ServiceTitle1En</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="optech-service-box">
+                    <div class="optech-service-thumb">
+                        <img alt="" src="/Images/Service/@landingPage.ServiceImage2"/>
+                        <div class="optech-service-data">
+                            <div class="optech-service-icon">
+                                <img alt="" src="/Images/Logo/@landingPage.ServiceLogo2"/>
+                            </div>
+                            <a href="@landingPage.ServiceHref2">
+                                <h5>@landingPage.ServiceTitle2En</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="optech-service-box">
+                    <div class="optech-service-thumb">
+                        <img alt="" src="/Images/Service/@landingPage.ServiceImage3"/>
+                        <div class="optech-service-data">
+                            <div class="optech-service-icon">
+                                <img alt="" src="/Images/Logo/@landingPage.ServiceLogo3"/>
+                            </div>
+                            <a href="@landingPage.ServiceHref3">
+                                <h5>@landingPage.ServiceTitle3En</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="optech-counter-section3">
+        <div class="container">
+            <div id="optech-counter2"></div>
+            <div class="optech-counter-wrap3">
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="400">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon1.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="1800">1800</span>+
+                        </div>
+                        <p>Successful product warranty</p>
+                    </div>
+                </div>
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="600">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon2.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="600">600</span>+
+                        </div>
+                        <p>Accredited partner brands</p>
+                    </div>
+                </div>
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="800">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon3.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="200">200</span>+
+                        </div>
+                        <p>Goods distribution</p>
+                    </div>
+                </div>
+                <div class="optech-counter-data3 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="optech-counter-icon3">
+                        <img alt="" src="/Landing/assets/images/v5/icon4.svg">
+                    </div>
+                    <div class="optech-counter-right">
+                        <div class="optech-counter-number3">
+                            <span class="optech-counter" data-percentage="26">86</span>٪
+                        </div>
+                        <p>Customer satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="optech-divider color2"></div>
+    </div>
+}
+
+@section meta
+{
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+    <meta name="description" content=@Html.Raw(landingPage.SeoIndexDesc).ToString()/>
+    <link rel="canonical" href=@Html.Raw(landingPage.SeoIndexCanonical).ToString()/>
+    <meta property="og:locale" content="fa_IR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content=@Html.Raw(landingPage.SeoIndexTitle).ToString()/>
+    <meta property="og:description" content=@Html.Raw(landingPage.SeoIndexDesc).ToString()/>
+    <meta property="og:url" content="https://parsme.com"/>
+    <meta property="og:site_name" content=@Html.Raw(landingPage.SeoIndexTitle).ToString()/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="760"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+}

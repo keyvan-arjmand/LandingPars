@@ -1,0 +1,326 @@
+﻿@using System.Globalization
+<!doctype html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>@ViewData["Title"]</title>
+    <link
+        href="/Landing/assets/images/favicon.ico"
+        rel="shortcut icon"
+        type="image/x-icon"/>
+    <link href="/Landing/assets/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <!--- End favicon-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap"
+        rel="stylesheet"/>
+    <!-- End google font  -->
+    <link href="/Landing/assets/css/bootstrap.min.rtl.css" rel="stylesheet"/>
+    <link href="/Landing/assets/css/magnific-popup.rtl.css" rel="stylesheet"/>
+    <link href="/Landing/assets/css/slick.rtl.css" rel="stylesheet"/>
+    <link href="/Landing/assets/css/fontawesome.rtl.css" rel="stylesheet"/>
+    <link href="/Landing/assets/css/remixicon.rtl.css" rel="stylesheet"/>
+    <link href="/Landing/assets/css/aos.css" rel="stylesheet"/>
+    <!-- Code Ed/Landing/itor  -->
+    <link href="/Landing/assets/css/main.rtl.css" rel="stylesheet"/>
+    <link href="/Landing/assets/css/app.rtl.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="optech-preloader-wrap">
+    <div class="optech-preloader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+@await RenderSectionAsync("meta")
+<div class="paginacontainer">
+    <div class="progress-wrap">
+        <svg
+            class="progress-circle svg-content"
+            height="100%"
+            viewbox="-1 -1 102 102"
+            width="100%">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+        <div class="top-arrow">
+            <i class="ri-arrow-up-s-line"></i>
+        </div>
+    </div>
+</div>
+<header
+    class="site-header optech-header-section optech-header-one"
+    id="sticky-menu">
+    <div class="optech-header-top">
+        <div class="container">
+            <div class="optech-header-info-wrap">
+                <div class="optech-header-info dark-color">
+                    <ul>
+                        <li>
+                            <div class="d-flex justify-content-between" style="gap: 5px">
+                                <a class="p-2" style="    background-color: rgb(255 255 255 / 70%);
+    border-radius: 10px;" href="@Url.Action("ChangeLanguage", "Language", new { culture = "en" })">
+                                    <i class="languages"></i>En
+                                </a >
+                                <a class="p-2" style="    background-color: rgb(255 255 255 / 70%);
+    border-radius: 10px;" href="@Url.Action("ChangeLanguage", "Language", new { culture = "fa" })">
+                                    <i class="language"></i>Fa
+                                </a >
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="optech-header-info dark-color">
+                    <ul>
+                        <li style="    background-color: rgb(255 255 255 / 70%);
+    border-radius: 10px;">
+                            <div>
+                                @await RenderSectionAsync("HeadNumber")
+                            </div>
+                        </li>
+                        <li style="    background-color: rgb(255 255 255 / 70%);
+    border-radius: 10px;">
+                            <a href="mailto:info[at]Parsme.com">
+                                <i class="ri-mail-fill"></i>info[at]Parsme.com
+                            </a
+                            >
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="optech-header-bottom">
+        <div class="container">
+            <div class="optech-header-bottom2">
+                <nav class="navbar site-navbar">
+                    <!-- Brand Logo-->
+                    <div class="brand-logo">
+                        <a href="@Url.Action("Index", "Home")">
+                            @await RenderSectionAsync("headLogo")
+
+                        </a>
+                    </div>
+                    <div class="menu-block-wrapper">
+                        <div class="menu-overlay"></div>
+                        <nav class="menu-block" id="append-menu-header">
+                            <div class="mobile-menu-head">
+                                <div class="go-back">
+                                    <i class="fa fa-angle-left"></i>
+                                </div>
+                                <div class="current-menu-title"></div>
+                                <div class="mobile-menu-close">×</div>
+                            </div>
+                            @await RenderSectionAsync("Header")
+
+                        </nav>
+                    </div>
+                    <div
+                        class="header-btn header-btn-l1 ms-auto d-none d-xs-inline-flex">
+                        <div class="optech-header-icon">
+                            @if (CultureInfo.CurrentCulture.Name == "fa")
+                            {
+                                <a
+                                    class="optech-default-btn optech-header-btn"
+                                    data-text="تماس با ما"
+                                    href="@Url.Action("ContactUs", "Home")">
+                                    <span class="btn-wraper">تماس با ما</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a
+                                    class="optech-default-btn optech-header-btn"
+                                    data-text="Contact Us"
+                                    href="@Url.Action("ContactUs", "Home")">
+                                    <span class="btn-wraper">Contact Us</span>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                    <!-- mobile menu trigger -->
+                    <div class="mobile-menu-trigger">
+                        <span></span>
+                    </div>
+                    <!--/.Mobile Menu Hamburger Ends-->
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="optech-header-search-section">
+        <div class="container">
+            <div class="optech-header-search-box">
+                <input placeholder="اینجا جستجو کنید ..." type="search"/>
+                <button id="header-search" type="button">
+                    <i class="ri-search-line"></i>
+                </button>
+                <p>
+                    بالا را تایپ کرده و Enter را فشار دهید تا جستجو کنید.برای لغو
+                    نزدیک فشار دهید.
+                </p>
+            </div>
+        </div>
+        <div class="optech-header-search-close">
+            <i class="ri-close-line"></i>
+        </div>
+    </div>
+</header>
+<div class="search-overlay"></div>
+@RenderBody()
+<footer class="optech-footer-section optech-section-padding-top">
+    <div class="container">
+        <div
+            class="optech-footer-cta-wrap shape-white" id="CardImage">
+            <div class="row">
+                <div class="col-xl-7 col-lg-8">
+                    <div class="optech-footer-cta-content">
+                        @if (CultureInfo.CurrentCulture.Name == "fa")
+                        {
+                            <h2>بیایید با هم کار کنیم</h2>
+                        }
+                        else
+                        {
+                            <h2>Let's work together.</h2>
+                        }
+                        @await RenderSectionAsync("DescCart")
+                    </div>
+                </div>
+                <div
+                    class="col-xl-5 col-lg-4 d-flex align-items-center justify-content-end">
+                    @if (CultureInfo.CurrentCulture.Name == "fa")
+                    {
+                        <div
+                            class="optech-cta-btn"
+                            data-aos="fade-up"
+                            data-aos-duration="800">
+                            <a
+                                class="optech-default-btn optech-white-btn"
+                                data-text="تماس با ما"
+                                href="@Url.Action("ContactUs", "Home")">
+                                <span class="btn-wraper">
+                                    شروع همکاری پر قدرت
+                                </span
+                                >
+                            </a
+                            >
+                        </div>
+                    }
+                    else
+                    {
+                        <div
+                            class="optech-cta-btn"
+                            data-aos="fade-up"
+                            data-aos-duration="800">
+                            <a
+                                class="optech-default-btn optech-white-btn"
+                                data-text="Contact us"
+                                href="@Url.Action("ContactUs", "Home")">
+                                <span class="btn-wraper">
+                                    Starting powerful cooperation
+                                </span
+                                >
+                            </a
+                            >
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="optech-footer-top optech-section-padding">
+            <div class="row">
+                <div class="col-xl-4 col-lg-12">
+                    <div class="optech-footer-textarea dark-color">
+                        <a href="@Url.Action("Index", "Home")">
+                            @await RenderSectionAsync("headLogo2")
+                        </a>
+                        <p>
+                            میدان ولیعصر، خیابان ولیعصر، نبش خیابان ولدی، مجتمع تجاری ولیعصر، برج اداری شمالی، طبقه ششم، واحد 33
+                        </p>
+                        <div class="optech-footer-info dark-color">
+                            <ul>
+                                <li class="p-3">
+                                    @await RenderSectionAsync("HeadNumber2")
+                                </li>
+                                <li >
+                                    <a href="mailto:info[at]Parsme.com">
+                                        <i class="ri-mail-fill"></i>info[at]Parsme.com
+
+                                    </a >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 offset-xl-1 col-md-6">
+                    <div class="optech-footer-menu dark-color">
+                        <div class="optech-footer-title dark-color">
+                            <h5>گروه کسری</h5>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/landing?q=معرفی شرکت">معرفی شرکت</a>
+                            </li>
+                            <li>
+                                <a href="/landing?q=کسری کامپیوتر">کسری کامپیوتر</a>
+                            </li>
+                            <li>
+                                <a href="/landing?q=فروشگاه اینترنتی پارس می">فروشگاه اینترنتی پارس می</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="optech-footer-menu dark-color">
+                        <div class="optech-footer-title dark-color">
+                            <h5>خدمات</h5>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/landing?q=واردات کالا">واردات کالا</a>
+                            </li>
+                            <li>
+                                <a href="/landing?q=قیمت گذاری و توزیع کالا">قیمت گذاری و توزیع کالا</a>
+                            </li>
+                            <li>
+                                <a href="/landing?q=ضمانت و گارانتی کالا">ضمانت و گارانتی کالا</a>
+                            </li>
+                            <li>
+                                <a href="/landing?q=فروش و توزیع کالا">فروش و توزیع کالا</a>
+                            </li>
+                            <li>
+                                <a href="/landing?q=اعتبار سنجی گارانتی">اعتبار سنجی گارانتی</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- scripts -->
+<script src="/Landing/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/Landing/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/Landing/assets/js/menu/menu.js"></script>
+<script src="/Landing/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="/Landing/assets/js/slick.js"></script>
+<script src="/Landing/assets/js/countdown.js"></script>
+<script src="/Landing/assets/js/skillbar.js"></script>
+<script src="/Landing/assets/js/slick-animation.js"></script>
+<script src="/Landing/assets/js/slick-animation.min.js"></script>
+<script src="/Landing/assets/js/faq.js"></script>
+<script src="/Landing/assets/js/isotope.pkgd.min.js"></script>
+<script src="/Landing/assets/js/tabs-slider.js"></script>
+<script src="/Landing/assets/js/product-increment.js"></script>
+<script src="/Landing/assets/js/top-to-bottom.js"></script>
+<script src="/Landing/assets/js/aos.js"></script>
+<script src="/Landing/assets/js/app.js"></script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVYQNB7RXX"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QVYQNB7RXX'); </script>
+</body>
+</html>
