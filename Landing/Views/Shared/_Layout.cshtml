@@ -55,17 +55,17 @@
     id="sticky-menu">
     <div class="optech-header-top">
         <div class="container">
-            <div class="optech-header-info-wrap">
+            <div class="optech-header-info-wrap" style="background-color: rgb(255, 255, 255, 52%);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;padding: 3px">
                 <div class="optech-header-info dark-color">
                     <ul>
                         <li>
                             <div class="d-flex justify-content-between" style="gap: 5px">
-                                <a class="p-2" style="    background-color: rgb(255 255 255 / 70%);
-    border-radius: 10px;" href="@Url.Action("ChangeLanguage", "Language", new { culture = "en" })">
+                                <a class="p-2" href="@Url.Action("ChangeLanguage", "Language", new { culture = "en" })">
                                     <i class="languages"></i>En
                                 </a >
-                                <a class="p-2" style="    background-color: rgb(255 255 255 / 70%);
-    border-radius: 10px;" href="@Url.Action("ChangeLanguage", "Language", new { culture = "fa" })">
+                                <a class="p-2" href="@Url.Action("ChangeLanguage", "Language", new { culture = "fa" })">
                                     <i class="language"></i>Fa
                                 </a >
                             </div>
@@ -74,17 +74,15 @@
                     </ul>
                 </div>
                 <div class="optech-header-info dark-color ino-hide-kon">
-                    <ul>
-                        <li style="    background-color: rgb(255 255 255 / 70%);
-    border-radius: 10px;">
+                    <ul style="    padding: 7px;">
+                        <li >
                             <div>
                                 @await RenderSectionAsync("HeadNumber")
                             </div>
                         </li>
-                        <li style="    background-color: rgb(255 255 255 / 70%);
-    border-radius: 10px;">
-                            <a href="mailto:info[at]Parsme.com">
-                                <i class="ri-mail-fill"></i>info[at]Parsme.com
+                        <li >
+                            <a href="mailto:info@Parsme.com">
+                                <i class="ri-mail-fill"></i>info@Parsme.com
                             </a
                             >
                         </li>
@@ -259,8 +257,8 @@
                                     @await RenderSectionAsync("HeadNumber2")
                                 </li>
                                 <li >
-                                    <a href="mailto:info[at]Parsme.com">
-                                        <i class="ri-mail-fill"></i>info[at]Parsme.com
+                                    <a href="mailto:info@Parsme.com">
+                                        <i class="ri-mail-fill"></i>info@Parsme.com
                                     </a >
                                 </li>
                             </ul>

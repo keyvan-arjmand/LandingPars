@@ -20,7 +20,6 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddInfrastructureServices();
-
 // Configure DbContext
 builder.Services.AddDbContext<Dal.DataBase.AppContext>(s =>
     s.UseSqlServer(
@@ -106,7 +105,7 @@ app.UseRouting();
 app.UseCors("AllowSpecificOrigin");
 
 app.UseSession();
-app.UseAuthentication(); // باید قبل از UseAuthorization فراخوانی شود
+app.UseAuthentication();
 app.UseAuthorization();
 
 

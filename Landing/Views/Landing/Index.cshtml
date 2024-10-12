@@ -4,9 +4,16 @@
     Layout = "_Layout";
     List<Category> categories = ViewBag.Cats;
     SubPage page1 = ViewBag.Page;
-    ViewData["Title"] = @page1.SeoTitle;
+   
     LandingPage landingPage = ViewBag.Landing;
-
+    if (CultureInfo.CurrentCulture.Name == "fa")
+    {
+        ViewData["Title"] = @page1.SeoTitle;
+    }
+    else
+    {
+        ViewData["Title"] = @page1.SeoTitleEn;
+    }
 }
 
 
@@ -177,13 +184,12 @@ else
                         <a
                             class="nav-link-item drop-trigger"
                             href="@i.Href">
-                            @i.Title
+                            @i.TitleEn
                             <i class="ri-arrow-down-s-fill">
                             </i
                             >
                         </a>
                         <ul class="sub-menu" id="@id">
-
                             @foreach (var q in i.Pages)
                             {
                                 <li class="sub-menu--item">

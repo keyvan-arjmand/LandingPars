@@ -7,6 +7,14 @@
     LandingPage landingPage = ViewBag.Landing;
     var imageSec1 = "./images/banner/" + landingPage.Sec1Image;
     ViewData["Title"] = @landingPage.SeoIndexTitle;
+    if (CultureInfo.CurrentCulture.Name == "fa")
+    {
+        ViewData["Title"] = @landingPage.SeoIndexTitle;
+    }
+    else
+    {
+        ViewData["Title"] = @landingPage.SeoIndexTitleEn;
+    }
 }
 
 @section HeadNumber2
@@ -631,4 +639,3 @@ else
         <div class="optech-divider color2"></div>
     </div>
 }
-

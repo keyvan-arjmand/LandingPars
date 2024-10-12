@@ -390,11 +390,11 @@
 @font-face {
   font-family: iranyekan;
   font-style: normal;
-  src: url("typography/eot/pink.eot");
+  src: url("/Landing/assets/fonts/IranYekan/eot/iranyekanwebregular.eot");
   src:
-    url("typography/eot/pink.eot?#iefix") format("embedded-opentype"),
-    /* ie6-8 */ url("typography/woff/pink.woff") format("woff"),
-    /* ff3.6+, ie9, chrome6+, saf5.1+*/ url("typography/ttf/pink.ttf")
+    url("/Landing/assets/fonts/IranYekan/eot/iranyekanwebregular.eot?#iefix") format("embedded-opentype"),
+    /* ie6-8 */ url("/Landing/assets/fonts/IranYekan/woff/iranyekanwebregular.woff") format("woff"),
+    /* ff3.6+, ie9, chrome6+, saf5.1+*/ url("/Landing/assets/fonts/IranYekan/ttf/iranyekanwebregular.ttf")
       format("truetype");
 }
 

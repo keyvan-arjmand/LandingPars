@@ -163,12 +163,26 @@
                                     <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
 
                                         <div class="form-group w-50 p-3" id="">
-                                            <label>توضیحات</label>
+                                            <label> توضیحات</label>
                                             <textarea id="SeoDesc"   asp-for="SeoDesc" class="form-control">@Html.Raw(subPage.SeoDesc)</textarea>
                                         </div>
 
 
                                     </div>
+                                    <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
+
+                                        <div class="form-group w-50 p-3" id="">
+                                            <label>عنوان انگلیسی</label>
+                                            <input id="SeoTitle1" asp-for="SeoTitleEn" value="@subPage.SeoTitleEn" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group w-50 p-3" id="">
+                                            <label> توضیحات انگلیسی</label>
+                                            <textarea id="SeoDes1c"   asp-for="SeoDescEn" class="form-control">@Html.Raw(subPage.SeoDescEn)</textarea>
+                                        </div>
+
+
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -200,6 +214,7 @@
                 .create(document.getElementById('editor2'), {
                     // Editor configuration.
                     //پشتیبانی از تگ های HTML
+                    language: 'en',
                     htmlSupport: {
                         allow: [
                             {

@@ -85,7 +85,7 @@ html {
 }
 
 *:not(i) {
-  font-family: var(--font-anjoman) !important;
+  font-family: var(--font-iranyekan) !important;
 }
 * {
   letter-spacing: 0 !important;

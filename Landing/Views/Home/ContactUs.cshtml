@@ -5,7 +5,14 @@
     Layout = "_Layout";
     List<Category> categories = ViewBag.Cats;
     SubPage page1 = ViewBag.Page;
-    ViewData["Title"] = @page1.SeoTitle;
+    if (CultureInfo.CurrentCulture.Name == "fa")
+    {
+        ViewData["Title"] = @page1.SeoTitle;
+    }
+    else
+    {
+        ViewData["Title"] = @page1.SeoTitleEn;
+    }
     LandingPage landingPage = ViewBag.Landing;
 }
 

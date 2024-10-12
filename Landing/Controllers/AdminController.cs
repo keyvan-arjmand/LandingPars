@@ -268,6 +268,8 @@ public class AdminController : Controller
         subPage.SeoTitle = request.SeoTitle;
         subPage.SeoCanonical = request.SeoCanonical;
         subPage.SeoDesc = request.SeoDesc;
+        subPage.SeoDescEn = request.SeoDescEn;
+        subPage.SeoTitleEn = request.SeoTitleEn;
 
         await _work.GenericRepository<SubPage>().UpdateAsync(subPage, CancellationToken.None);
         return RedirectToAction("SubPage");
