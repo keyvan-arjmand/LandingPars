@@ -2048,12 +2048,10 @@ header.optech-header-section.sticky-menu {
 }
 
 @media (max-width: 991px) {
-    /*.optech-header-top {*/
-    /*    display: none;*/
-    /*}*/
-    .ino-hide-kon{
+    .optech-header-top {
         display: none;
     }
+
 }
 
 @media (max-width: 991px) {
