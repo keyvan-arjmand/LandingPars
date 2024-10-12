@@ -17,7 +17,7 @@ public class LandingController : Controller
     // GET
     public async Task<IActionResult> Index(string q)
     {
-        var page = await _work.GenericRepository<SubPage>().TableNoTracking.FirstOrDefaultAsync(x => x.Title.Contains(q));
+        var page = await _work.GenericRepository<SubPage>().TableNoTracking.FirstOrDefaultAsync(x => x.Title.Contains(q)||x.TitleEn.Contains(q));
         ViewBag.Page = page;
         ViewBag.Landing = await _work.GenericRepository<LandingPage>().TableNoTracking.FirstOrDefaultAsync();
         ViewBag.Cats = await _work.GenericRepository<Category>().TableNoTracking.Include(x => x.Pages).ToListAsync();

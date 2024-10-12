@@ -9,21 +9,7 @@
     ViewData["Title"] = @page1.SeoTitle;
 }
 
-@section meta
-{
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-    <meta name="description" content=@Html.Raw(page1.SeoTitle).ToString()/>
-    <link rel="canonical" href=@Html.Raw(page1.SeoCanonical).ToString()/>
-    <meta property="og:locale" content="fa_IR"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content=@Html.Raw(page1.SeoTitle).ToString()/>
-    <meta property="og:description" content=@Html.Raw(page1.SeoDesc).ToString()/>
-    <meta property="og:url" content="https://parsme.com"/>
-    <meta property="og:site_name" content=@Html.Raw(page1.SeoTitle).ToString()/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="760"/>
-    <meta property="og:image:type" content="image/jpeg"/>
-}
+
 @section HeadNumber2
     {
 <a href="tel:@landingPage.Number" >
@@ -33,6 +19,21 @@
 }
 @if (CultureInfo.CurrentCulture.Name == "fa")
 {
+    @section meta
+    {
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+        <meta name="description" content=@Html.Raw(page1.SeoTitle).ToString()/>
+        <link rel="canonical" href=@Html.Raw(page1.SeoCanonical).ToString()/>
+        <meta property="og:locale" content="fa_IR"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content=@Html.Raw(page1.SeoTitle).ToString()/>
+        <meta property="og:description" content=@Html.Raw(page1.SeoDesc).ToString()/>
+        <meta property="og:url" content="https://parsme.com"/>
+        <meta property="og:site_name" content=@Html.Raw(page1.SeoTitle).ToString()/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="760"/>
+        <meta property="og:image:type" content="image/jpeg"/>
+    }
     @section headLogo2
     {
         <img
@@ -174,6 +175,21 @@
 }
 else
 {
+    @section meta
+    {
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+        <meta name="description" content=@Html.Raw(page1.SeoTitleEn).ToString()/>
+        <link rel="canonical" href=@Html.Raw(page1.SeoCanonical).ToString()/>
+        <meta property="og:locale" content="fa_IR"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content=@Html.Raw(page1.SeoTitleEn).ToString()/>
+        <meta property="og:description" content=@Html.Raw(page1.SeoDescEn).ToString()/>
+        <meta property="og:url" content="https://parsme.com"/>
+        <meta property="og:site_name" content=@Html.Raw(page1.SeoTitleEn).ToString()/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="760"/>
+        <meta property="og:image:type" content="image/jpeg"/>
+    }
     @section DescCart
     {
         <p>
@@ -194,7 +210,7 @@ else
                             <a
                                 class="nav-link-item drop-trigger"
                                 href="@i.Href">
-                                @i.Title
+                                @i.TitleEn
                                 <i class="ri-arrow-down-s-fill">
                                 </i
                                 >
@@ -204,9 +220,9 @@ else
                                 @foreach (var q in i.Pages)
                                 {
                                     <li class="sub-menu--item">
-                                        <a href="@q.Href">
+                                        <a href="@q.HrefEn">
                                             <span class="menu-item-text">
-                                                @q.Title
+                                                @q.TitleEn
                                             </span
                                             >
                                         </a>
@@ -219,7 +235,7 @@ else
                     else
                     {
                         <li class="nav-item">
-                            <a class="nav-link-item" href="@i.Href">@i.Title</a>
+                            <a class="nav-link-item" href="@i.Href">@i.TitleEn</a>
                         </li>
                     }
                 }

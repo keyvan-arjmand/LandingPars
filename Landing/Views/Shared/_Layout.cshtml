@@ -180,11 +180,11 @@
                     <div class="optech-footer-cta-content">
                         @if (CultureInfo.CurrentCulture.Name == "fa")
                         {
-                            <h2>بیایید با هم کار کنیم</h2>
+                            <h2> شروع همکاری پر قدرت</h2>
                         }
                         else
                         {
-                            <h2>Let's work together.</h2>
+                            <h2>Starting powerful cooperation</h2>
                         }
                         @await RenderSectionAsync("DescCart")
                     </div>
@@ -202,7 +202,7 @@
                                 data-text="تماس با ما"
                                 href="@Url.Action("ContactUs", "Home")">
                                 <span class="btn-wraper">
-                                    شروع همکاری پر قدرت
+                                    شروع همکاری
                                 </span
                                 >
                             </a
@@ -220,7 +220,7 @@
                                 data-text="Contact us"
                                 href="@Url.Action("ContactUs", "Home")">
                                 <span class="btn-wraper">
-                                    Starting powerful cooperation
+                                    Starting cooperation
                                 </span
                                 >
                             </a
@@ -240,9 +240,19 @@
                         <a href="@Url.Action("Index", "Home")">
                             @await RenderSectionAsync("headLogo2")
                         </a>
-                        <p>
-                            میدان ولیعصر، خیابان ولیعصر، نبش خیابان ولدی، مجتمع تجاری ولیعصر، برج اداری شمالی، طبقه ششم، واحد 33
-                        </p>
+                        @if (CultureInfo.CurrentCulture.Name == "fa")
+                        {
+                            <p>
+                                میدان ولیعصر، خیابان ولیعصر، نبش خیابان ولدی، مجتمع تجاری ولیعصر، برج اداری شمالی، طبقه ششم، واحد 33
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                Unit 33, 6th Floor, North Administrative Tower, Vali Asr Computer Center, Valadi St. Vali Asr St., Vali Asr Square, Tehran, Iran
+                            </p>
+                        }
+
                         <div class="optech-footer-info dark-color">
                             <ul>
                                 <li class="p-3">
@@ -251,55 +261,103 @@
                                 <li >
                                     <a href="mailto:info[at]Parsme.com">
                                         <i class="ri-mail-fill"></i>info[at]Parsme.com
-
                                     </a >
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 offset-xl-1 col-md-6">
-                    <div class="optech-footer-menu dark-color">
-                        <div class="optech-footer-title dark-color">
-                            <h5>گروه کسری</h5>
+                @if (CultureInfo.CurrentCulture.Name == "fa")
+                {
+                    <div class="col-xl-3 offset-xl-1 col-md-6">
+                        <div class="optech-footer-menu dark-color">
+                            <div class="optech-footer-title dark-color">
+                                <h5>گروه کسری</h5>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/landing?q=معرفی شرکت">معرفی شرکت</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=کسری کامپیوتر">کسری کامپیوتر</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=فروشگاه اینترنتی پارس می">فروشگاه اینترنتی پارس می</a>
+                                </li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li>
-                                <a href="/landing?q=معرفی شرکت">معرفی شرکت</a>
-                            </li>
-                            <li>
-                                <a href="/landing?q=کسری کامپیوتر">کسری کامپیوتر</a>
-                            </li>
-                            <li>
-                                <a href="/landing?q=فروشگاه اینترنتی پارس می">فروشگاه اینترنتی پارس می</a>
-                            </li>
-                        </ul>
                     </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="optech-footer-menu dark-color">
-                        <div class="optech-footer-title dark-color">
-                            <h5>خدمات</h5>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="optech-footer-menu dark-color">
+                            <div class="optech-footer-title dark-color">
+                                <h5>خدمات</h5>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/landing?q=واردات کالا">واردات کالا</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=قیمت گذاری و توزیع کالا">قیمت گذاری و توزیع کالا</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=ضمانت و گارانتی کالا">ضمانت و گارانتی کالا</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=فروش و توزیع کالا">فروش و توزیع کالا</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=اعتبار سنجی گارانتی">اعتبار سنجی گارانتی</a>
+                                </li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li>
-                                <a href="/landing?q=واردات کالا">واردات کالا</a>
-                            </li>
-                            <li>
-                                <a href="/landing?q=قیمت گذاری و توزیع کالا">قیمت گذاری و توزیع کالا</a>
-                            </li>
-                            <li>
-                                <a href="/landing?q=ضمانت و گارانتی کالا">ضمانت و گارانتی کالا</a>
-                            </li>
-                            <li>
-                                <a href="/landing?q=فروش و توزیع کالا">فروش و توزیع کالا</a>
-                            </li>
-                            <li>
-                                <a href="/landing?q=اعتبار سنجی گارانتی">اعتبار سنجی گارانتی</a>
-                            </li>
-                        </ul>
                     </div>
-                </div>
+                }
+                else
+                {
+                    <div class="col-xl-3 offset-xl-1 col-md-6">
+                        <div class="optech-footer-menu dark-color">
+                            <div class="optech-footer-title dark-color">
+                                <h5>Kasra Group</h5>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/landing?q=Company Introduction">Company Introduction</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=Kasra Computer">Kasra Computer</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=Pars Me Online Store">Pars Me Online Store</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="optech-footer-menu dark-color">
+                            <div class="optech-footer-title dark-color">
+                                <h5> Service</h5>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/landing?q=Import & export">Import & export</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=Pricing">Pricing </a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=Product Warranty">Product Warranty</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=Sales and Distribution">Sales and Distribution</a>
+                                </li>
+                                <li>
+                                    <a href="/landing?q=Warranty Validation">Warranty Validation</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+
             </div>
         </div>
     </div>
