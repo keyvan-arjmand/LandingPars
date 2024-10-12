@@ -9,7 +9,8 @@ public class LandingDto
     public string? Number { get; set; }
     public string? SeoIndexCanonical { get; set; }
 
-    
+    public string? SeoIndexTitleEn { get; set; }
+    public string? SeoIndexDescEn { get; set; }
     public string? Sec1Title { get; set; }
     public string? Sec1TitleEn { get; set; }
     public string? Sec1SubTitle { get; set; }

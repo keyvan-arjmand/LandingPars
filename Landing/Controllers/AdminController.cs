@@ -333,6 +333,8 @@ public class AdminController : Controller
 
         subPage.SeoIndexTitle = request.SeoIndexTitle;
         subPage.SeoIndexDesc = request.SeoIndexDesc;
+        subPage.SeoIndexTitleEn = request.SeoIndexTitleEn;
+        subPage.SeoIndexDescEn = request.SeoIndexDescEn;
         subPage.SeoIndexCanonical = request.SeoIndexCanonical;
         subPage.Number = request.Number;
         subPage.Sec1Title = request.Sec1Title;
@@ -343,6 +345,8 @@ public class AdminController : Controller
         subPage.Sec1DescEn = request.Sec1DescEn;
         subPage.DescCart = request.DescCart;
         subPage.DescCartEn = request.DescCartEn;
+        subPage.Sec2TitleEn = request.Sec2TitleEn;
+        subPage.Sec2Title = request.Sec2Title;
 
         Upload up = new Upload(_webHostEnvironment);
         subPage.Logo = request.Logo != null

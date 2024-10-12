@@ -72,22 +72,22 @@ img{width: fit-content}
 </div>
 <section class="content">
 <div class="container-fluid">
-<div class="row">
+    <div class="row">
 
-    <!-- Profile Image -->
+        <!-- Profile Image -->
 
-    <!-- /.col -->
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link " href="#Sublanding" data-toggle="tab">صفحه اصلی</a>
-                    </li>
-                </ul>
-            </div><!-- /.card-header -->
+        <!-- /.col -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header p-2">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link " href="#Sublanding" data-toggle="tab">صفحه اصلی</a>
+                        </li>
+                    </ul>
+                </div><!-- /.card-header -->
 
-            <form asp-action="UpdateLanding" asp-controller="Admin" enctype="multipart/form-data" class="tab-content">
+                <form asp-action="UpdateLanding" asp-controller="Admin" enctype="multipart/form-data" class="tab-content">
                 <div class="tab-pane p-5 active show" id="Sublanding">
                     <div class="card card-info card-outline mt-4">
                         <div class="card-header">
@@ -180,24 +180,12 @@ img{width: fit-content}
                                 <div class=" m-2  p-3 w-100">
                                     <div class="d-flex justify-content-between gap-2">
                                         <div class="d-flex flex-column w-50">
-                                            <label for="exampleInputPassword1">توضیحات فارسی </label>
-                                            <input asp-for="Sec1Desc" value="@landing.Sec1Desc" class="form-control" id="exampleInputPassword1">
-                                        </div>
-                                        <div class="d-flex flex-column w-50">
-                                            <label for="exampleInputPassword1">توضیحات انگلیسی </label>
-                                            <input type="text" asp-for="Sec1DescEn" value="@landing.Sec1DescEn" id="SmallSideBannerin" title="test" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" m-2  p-3 w-100">
-                                    <div class="d-flex justify-content-between gap-2">
-                                        <div class="d-flex flex-column w-50">
                                             <label for="exampleInputPassword1">عنوان فارسی بخش دوم </label>
-                                            <input asp-for="Sec1Desc" value="@landing.Sec2Title" class="form-control" id="exampleInputPassword1">
+                                            <input asp-for="Sec2Title" value="@landing.Sec2Title" class="form-control" id="exampleInputPassword1">
                                         </div>
                                         <div class="d-flex flex-column w-50">
                                             <label for="exampleInputPassword1">عنوان انگلیسی بخش دوم </label>
-                                            <input type="text" asp-for="Sec1DescEn" value="@landing.Sec2TitleEn" id="SmallSideBannerin" title="test" class="form-control">
+                                            <input type="text" asp-for="Sec2TitleEn" value="@landing.Sec2TitleEn" id="SmallSideBannerin" title="test" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +207,7 @@ img{width: fit-content}
                     <div class="card card-info card-outline mt-4">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <small class="h4">مدیریت محتوا </small>
+                                <small class="h4">مدیریت سئو </small>
                             </h3>
                             <!-- tools box -->
                             <div class="card-tools">
@@ -251,28 +239,37 @@ img{width: fit-content}
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
-
                                 <div class="form-group w-50 p-3" id="">
                                     <label>توضیحات</label>
                                     <textarea id="SeoDesc"   asp-for="SeoIndexDesc" class="form-control">@Html.Raw(landing.SeoIndexDesc)</textarea>
                                 </div>
                             </div>
+                            <div class="d-flex justify-content-between flex-nowrap gap-3 align-items-center">
+                                <div class="form-group w-50 p-3" id="">
+                                    <label>عنوان انگلیسی</label>
+                                    <input id="" asp-for="SeoIndexTitleEn" value="@landing.SeoIndexTitleEn" type="text" class="form-control">
+                                </div>
+                                <div class="form-group w-50 p-3" id="">
+                                    <label>توضیحات انگلیسی</label>
+                                    <textarea id="seerr"   asp-for="SeoIndexDescEn" class="form-control">@Html.Raw(landing.SeoIndexDescEn)</textarea>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center flex-nowrap gap-3 align-items-center mt-3">
+                                <div class="form-input w-100">
+                                    <button type="submit" class="btn btn-primary">
+                                        ثبت
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-center flex-nowrap gap-3 align-items-center mt-3">
-                        <div class="form-input w-100">
-                            <button type="submit" class="btn btn-primary">
-                                ثبت
-                            </button>
-                        </div>
+            
                     </div>
                 </div>
-               
-
-            </form>
+              
+                </form>
+            </div>
         </div>
     </div><!-- /.card-body -->
-</div>
 </div>
 </section>
 
@@ -329,6 +326,7 @@ img{width: fit-content}
             }
         });
         $('#SeoDesc').val(`@Html.Raw(landing.SeoIndexDesc)`);
+        $('#seerr').val(`@Html.Raw(landing.SeoIndexDescEn)`);
     </script>
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 }

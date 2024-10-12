@@ -4,6 +4,8 @@ public class LandingPage : BaseEntity
 {
     public string? SeoIndexTitle { get; set; }
     public string? SeoIndexDesc { get; set; }
+    public string? SeoIndexTitleEn { get; set; }
+    public string? SeoIndexDescEn { get; set; }
     public string? Logo { get; set; }
     public string? Number { get; set; }
     public string? SeoIndexCanonical { get; set; }

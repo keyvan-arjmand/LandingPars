@@ -64,6 +64,10 @@ namespace Dal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TitleEn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -125,7 +129,13 @@ namespace Dal.Migrations
                     b.Property<string>("SeoIndexDesc")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SeoIndexDescEn")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SeoIndexTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SeoIndexTitleEn")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceDesc1")
@@ -281,6 +291,9 @@ namespace Dal.Migrations
                     b.Property<string>("Href")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("HrefEn")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -290,10 +303,20 @@ namespace Dal.Migrations
                     b.Property<string>("SeoDesc")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SeoDescEn")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SeoTitle")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SeoTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleEn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
