@@ -108,7 +108,7 @@ public class AdminController : Controller
         ViewBag.SubPage =
             await _work.GenericRepository<OurService>().TableNoTracking.Select(x => new ServiceDto
             {
-                Id = 1,
+                Id = x.Id,
                 ServiceDesc = x.SecDesc,
                 ServiceHref = x.ServiceHref,
                 ServiceLogo = x.ServiceLogo,
