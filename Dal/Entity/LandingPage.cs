@@ -46,6 +46,15 @@ public class LandingPage : BaseEntity
     public string? ServiceHref3 { get; set; }
 
     public string? ServiceLogo3 { get; set; }
+
+    public string? ServiceTitle4 { get; set; }
+    public string? ServiceTitle4En { get; set; }
+    public string? ServiceDesc4 { get; set; }
+    public string? ServiceDesc4En { get; set; }
+    public string? ServiceImage4 { get; set; }
+    public string? ServiceHref4 { get; set; }
+
+    public string? ServiceLogo4 { get; set; }
     public string? DescCart { get; set; }
     public string? DescCartEn { get; set; }
 }

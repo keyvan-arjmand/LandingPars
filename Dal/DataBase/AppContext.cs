@@ -29,6 +29,7 @@ public class AppContext : IdentityDbContext<User, Role, int>
     DbSet<SubPage> SubPages { set; get; }
     DbSet<Category> Categories { set; get; }
     DbSet<Message> Messages { set; get; }
+    DbSet<OurService> OurServices { set; get; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

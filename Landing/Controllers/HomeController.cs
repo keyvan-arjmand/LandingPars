@@ -23,6 +23,7 @@ public class HomeController : Controller
         ViewBag.Cats = await _work.GenericRepository<Category>().TableNoTracking.Include(x => x.Pages).ToListAsync();
         ViewBag.Brand = await _work.GenericRepository<Brand>().TableNoTracking.ToListAsync();
         ViewBag.Landing = await _work.GenericRepository<LandingPage>().TableNoTracking.FirstOrDefaultAsync();
+        ViewBag.About = await _work.GenericRepository<OurService>().TableNoTracking.ToListAsync();
         return View();
     }
 

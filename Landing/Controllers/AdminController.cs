@@ -96,6 +96,29 @@ public class AdminController : Controller
         return View();
     }
 
+    public async Task<ActionResult> ManageAboutUs()
+    {
+        ViewBag.OurServices =
+            await _work.GenericRepository<OurService>().TableNoTracking.ToListAsync();
+        return View();
+    }
+
+    public async Task<ActionResult> AboutUsDetail(int id)
+    {
+        ViewBag.SubPage =
+            await _work.GenericRepository<OurService>().TableNoTracking.Select(x => new ServiceDto
+            {
+                Id = 1,
+                ServiceDesc = x.SecDesc,
+                ServiceHref = x.ServiceHref,
+                ServiceLogo = x.ServiceLogo,
+                ServiceDesc1En = x.SecDescEn,
+                ServiceTitle = x.SecTitle,
+                ServiceTitleEn = x.SecTitleEn
+            }).FirstOrDefaultAsync(x => x.Id == id);
+        return View();
+    }
+
     public async Task<ActionResult> ServiceDetail(int id)
     {
         if (id == 1)
@@ -146,6 +169,22 @@ public class AdminController : Controller
                 }).FirstOrDefaultAsync();
         }
 
+        if (id == 4)
+        {
+            ViewBag.SubPage =
+                await _work.GenericRepository<LandingPage>().TableNoTracking.Select(x => new ServiceDto
+                {
+                    Id = 4,
+                    ServiceDesc = x.ServiceDesc4,
+                    ServiceHref = x.ServiceHref4,
+                    ServiceImage = x.ServiceImage4,
+                    ServiceLogo = x.ServiceLogo4,
+                    ServiceDesc1En = x.ServiceDesc4En,
+                    ServiceTitle = x.ServiceTitle4,
+                    ServiceTitleEn = x.ServiceTitle4En
+                }).FirstOrDefaultAsync();
+        }
+
         return View();
     }
 
@@ -155,6 +194,7 @@ public class AdminController : Controller
             await _work.GenericRepository<SubPage>().TableNoTracking.FirstOrDefaultAsync(x => x.Id == id);
         return View();
     }
+
 
     public async Task initAdmin2()
     {
@@ -325,8 +365,41 @@ public class AdminController : Controller
                 : subPage.ServiceImage3;
         }
 
+        if (request.Id == 4)
+        {
+            subPage.ServiceTitle4 = request.ServiceTitle;
+            subPage.ServiceTitle4En = request.ServiceTitleEn;
+            subPage.ServiceDesc4 = request.ServiceDesc;
+            subPage.ServiceDesc4En = request.ServiceDesc1En;
+            subPage.ServiceHref4 = request.ServiceHref;
+            subPage.ServiceLogo4 = request.Logo != null
+                ? up.Uploadfile(request.Logo, "Logo")
+                : subPage.ServiceLogo4;
+            subPage.ServiceImage4 = request.Image != null
+                ? up.Uploadfile(request.Image, "Service")
+                : subPage.ServiceImage4;
+        }
+
         await _work.GenericRepository<LandingPage>().UpdateAsync(subPage, CancellationToken.None);
         return RedirectToAction("ManageService");
+    }
+
+    public async Task<ActionResult> UpdateOurService(ServiceDto request)
+    {
+        var subPage = await _work.GenericRepository<OurService>().Table.FirstOrDefaultAsync();
+        Upload up = new Upload(_webHostEnvironment);
+
+        subPage.SecTitle = request.ServiceTitle;
+        subPage.SecTitleEn = request.ServiceTitleEn;
+        subPage.SecDesc = request.ServiceDesc;
+        subPage.SecDescEn = request.ServiceDesc1En;
+        subPage.ServiceHref = request.ServiceHref;
+        subPage.ServiceLogo = request.Logo != null
+            ? up.Uploadfile(request.Logo, "Logo")
+            : subPage.ServiceLogo;
+
+        await _work.GenericRepository<OurService>().UpdateAsync(subPage, CancellationToken.None);
+        return RedirectToAction("ManageAboutUs");
     }
 
     public async Task<ActionResult> UpdateLanding(LandingDto request)

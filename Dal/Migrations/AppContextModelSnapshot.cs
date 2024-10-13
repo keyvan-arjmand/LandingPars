@@ -156,6 +156,12 @@ namespace Dal.Migrations
                     b.Property<string>("ServiceDesc3En")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ServiceDesc4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceDesc4En")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ServiceHref1")
                         .HasColumnType("nvarchar(max)");
 
@@ -163,6 +169,9 @@ namespace Dal.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceHref3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceHref4")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceImage1")
@@ -174,6 +183,9 @@ namespace Dal.Migrations
                     b.Property<string>("ServiceImage3")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ServiceImage4")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ServiceLogo1")
                         .HasColumnType("nvarchar(max)");
 
@@ -181,6 +193,9 @@ namespace Dal.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceLogo3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceLogo4")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceTitle1")
@@ -199,6 +214,12 @@ namespace Dal.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceTitle3En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceTitle4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceTitle4En")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -239,6 +260,46 @@ namespace Dal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("Dal.Entity.OurService", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecDescEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecSubTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecSubTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceHref")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceLogo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OurServices");
                 });
 
             modelBuilder.Entity("Dal.Entity.Role", b =>
